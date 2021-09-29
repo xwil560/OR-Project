@@ -43,7 +43,7 @@ ax[1].set_title("Big Stores, Weekdays")
 # big_wkend_df.Demand.hist(bins=np.arange(1.5,6.5))
 print(big_wkend_df.Demand.mean())
 h3 = sns.histplot(ax = ax[2], x=big_wkend_df.Demand, bins=np.arange(1.5,6.5),color="Purple")
-ax[2].set_title("Small Stores, Weekends")
+ax[2].set_title("Big Stores, Weekends")
 plt.legend()
 plt.show()
 
