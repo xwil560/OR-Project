@@ -7,7 +7,7 @@ keys = []
 with open("keys.json") as fp:
     keys = json.loads(fp.read())
 
-locations = pd.read_csv("WoolworthsLocations.csv")
+locations = pd.read_csv("../WoolworthsLocations.csv")
 coords = locations[['Long','Lat']]
 coords = coords.to_numpy().tolist()
 
@@ -31,7 +31,7 @@ colour_dict = {
     'Distribution Centre':'black'
     }
 
-for i in range(1, len(coords)):
+for i in range(0, len(coords)):
     folium.Circle(list(reversed(coords[i])), radius=100, fill=True, popup= locations.Store[i], color=colour_dict[locations.Type[i]]).add_to(m)
 
 m.save("index.html")
