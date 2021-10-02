@@ -43,7 +43,7 @@ def TSP_calculate(df_time,  stops):
 
 def path_time(df, path):
     '''
-    Takes a list of stops and computes the best order to travel them in
+    calculates the time taken to traverse a path in a certain order 
     
     
     inputs:
