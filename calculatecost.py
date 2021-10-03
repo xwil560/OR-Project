@@ -3,6 +3,7 @@ import pandas as pd
 import itertools as iter
 import json
 import os
+import pickle as pkl
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -78,30 +79,30 @@ def import_json(filename):
         return json.loads(fp.read())
 
 def create_LP_values(filename):
-    df_t = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
+    df_t = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv") # read in csv of times
     
-    df_t.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    df_t.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True) # modify to the correct format for the TSP_calculate func
 
-    routes = import_json("data" + os.sep + filename)
+    routes = import_json("data" + os.sep + filename) # import subsets from json file
     leng = routes["total_combinations"]
     
     dict = {
         "path" : routes["combinations"], 
         "cost" : [0]*leng
-        }
+        } # initialise dictionary to create 
     
-    for store in df_t.Store:
+    for store in df_t.Store: # add a column for each location
         dict[store] = [0]*leng
     
-    df = pd.DataFrame(dict)
+    df = pd.DataFrame(dict) # make into df
 
 
-    for i in range(leng):
-        route = df.iloc[i]
-        path, cost = TSP_calculate(df_t, route.path)
-        df["path"].iloc[i] = path
+    for i in range(leng): # for every route
+        route = df.iloc[i] # take data for route 
+        path, cost = TSP_calculate(df_t, route.path) # find the shortest path and its cost 
+        df["path"].iloc[i] = path # add the optimal path and cost to the df
         df["cost"].iloc[i] = cost
-        for loc in path:
+        for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
             df[loc].iloc[i] = 1
 
 
@@ -111,14 +112,15 @@ def create_LP_values(filename):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
+    # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
-    df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
-    # df = df.set_index("Store")
+    # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    # # df = df.set_index("Store")
     
-    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
-    p,c = TSP_calculate(df,  stops)
-    print(p,c)
+    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    # p,c = TSP_calculate(df,  stops)
+    # print(p,c)
     # print(create_LP_values())
-
-
+    # df = create_LP_values("combinations_weekend.json")
+    # df.to_pickle("weekend_routes.pkl")
+    print(pd.read_pickle("weekend_routes.pkl"))
