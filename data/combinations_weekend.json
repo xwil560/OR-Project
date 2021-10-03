@@ -1,0 +1,5042 @@
+{
+    "combinations": [
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Airport",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manukau Mall",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Manurewa",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Papakura",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Roselands",
+            "Countdown Takanini"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Greenlane",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere East",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mangere Mall",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowbank",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Onehunga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Highland Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Botany Downs"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Highland Park"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Aviemore Drive",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Highland Park"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Botany Downs",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Highland Park",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Howick",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Meadowlands",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Mt Wellington",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Pakuranga",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Papatoetoe",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown St Lukes",
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Grey Lynn Central"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Auckland City",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Grey Lynn Central"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Grey Lynn Central",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Eden",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Newmarket",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Ponsonby",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown St Lukes",
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown St Lukes",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Three Kings",
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston",
+            "Countdown Lynfield"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynfield",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynfield",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynfield",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynfield",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynmall",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynmall",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynmall",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynfield",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynfield",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynfield",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynfield",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Lynmall",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Lynmall",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Lynmall",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynfield"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Blockhouse Bay",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynfield"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Lynfield",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown Mt Roskill",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Glenfield"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Mairangi Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Mairangi Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Mairangi Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Northcote",
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Browns Bay"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Glenfield"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Birkenhead",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Glenfield"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Browns Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Glenfield",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Hauraki Corner",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Mairangi Bay",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Milford",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Northcote",
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Northcote",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lynmall",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lynmall",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lynmall",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lynmall",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lynmall",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lynmall",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lynmall",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lynmall",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Lynmall",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Lynmall",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Lynmall",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Lynmall",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Hobsonville"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Henderson",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Hobsonville",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Kelston",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lincoln Road",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Lynmall",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Northwest",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Te Atatu",
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Te Atatu",
+            "Countdown Westgate"
+        ],
+        [
+            "Countdown Te Atatu South",
+            "Countdown Westgate"
+        ]
+    ],
+    "total_combinations": 1066
+}

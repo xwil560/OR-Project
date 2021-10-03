@@ -2,7 +2,10 @@ import numpy as np
 import pandas as pd
 import itertools as iter
 import json
+<<<<<<< HEAD
+=======
 import os
+>>>>>>> 899d4345bf99de5155f05d345277395228ad5648
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -73,6 +76,12 @@ def path_time(df, path):
 
     return t
 
+<<<<<<< HEAD
+def import_json():
+    with open("combinations.json") as fp:
+        return json.loads(fp.read())
+
+=======
 def import_json(filename):
     with open(filename) as fp:
         return json.loads(fp.read())
@@ -82,6 +91,7 @@ def create_LP_values():
     return routes["Region 1"][0]
 
 
+>>>>>>> 899d4345bf99de5155f05d345277395228ad5648
 if __name__ == "__main__":
     # df = pd.read_csv("WoolworthsTravelDurations.csv")
     
