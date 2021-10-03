@@ -1,8 +1,11 @@
-from os import path
 import numpy as np
 import pandas as pd
 import itertools as iter
 import json
+<<<<<<< HEAD
+=======
+import os
+>>>>>>> 899d4345bf99de5155f05d345277395228ad5648
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -36,6 +39,7 @@ def TSP_calculate(df_time,  stops):
 
     mindex = np.argmin(times) # find the index with the shortest time
 
+
     cost = 3.75*((times[mindex])/60 + 7.5*len(stops)) # evaluate how expensive running this path is 
 
     path = list(paths[mindex]) # convert the optimal path as a list 
@@ -68,16 +72,31 @@ def path_time(df, path):
 
     return t
 
+<<<<<<< HEAD
 def import_json():
     with open("combinations.json") as fp:
         return json.loads(fp.read())
 
+=======
+def import_json(filename):
+    with open(filename) as fp:
+        return json.loads(fp.read())
+
+def create_LP_values():
+    routes = import_json("maps" + os.sep + "combinations.json")
+    return routes["Region 1"][0]
+
+
+>>>>>>> 899d4345bf99de5155f05d345277395228ad5648
 if __name__ == "__main__":
-    df = pd.read_csv("WoolworthsTravelDurations.csv")
+    # df = pd.read_csv("WoolworthsTravelDurations.csv")
     
-    df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
-    df = df.set_index("Store")
+    # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    # df = df.set_index("Store")
     
-    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
-    p,c = TSP_calculate(df,  stops)
-    print(p,c)
+    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    # p,c = TSP_calculate(df,  stops)
+    # print(p,c)
+    print(create_LP_values())
+
+
