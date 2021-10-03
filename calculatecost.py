@@ -36,8 +36,12 @@ def TSP_calculate(df_time,  stops):
 
     mindex = np.argmin(times) # find the index with the shortest time
 
+    total_time = (times[mindex])/60 + 7.5*len(stops)
 
-    cost = 3.75*((times[mindex])/60 + 7.5*len(stops)) # evaluate how expensive running this path is 
+    if total_time <= 240: # evaluate how expensive running this path is 
+        cost = 3.75*((times[mindex])/60 + 7.5*len(stops)) 
+    else:
+        cost = 3.75*240 + (275/60)*((times[mindex])/60 + 7.5*len(stops))
 
     path = list(paths[mindex]) # convert the optimal path as a list 
     
