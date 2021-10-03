@@ -2,10 +2,7 @@ import numpy as np
 import pandas as pd
 import itertools as iter
 import json
-<<<<<<< HEAD
-=======
 import os
->>>>>>> 899d4345bf99de5155f05d345277395228ad5648
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -26,10 +23,10 @@ def TSP_calculate(df_time,  stops):
     cost : float
         cost (in nz$) of taking the trip
     '''
-
-
     
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
+
+    df_time = df_time.set_index("Store")
 
     df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
     
@@ -44,7 +41,7 @@ def TSP_calculate(df_time,  stops):
     if total_time <= 240: # evaluate how expensive running this path is 
         cost = 3.75*((times[mindex])/60 + 7.5*len(stops)) 
     else:
-        cost = 3.75*240 + (275/60)*((times[mindex])/60 + 7.5*len(stops))
+        cost = 3.75*240 + (275/60)*((times[mindex])/60 + 7.5*len(stops)-240)
 
     path = list(paths[mindex]) # convert the optimal path as a list 
     
@@ -76,31 +73,52 @@ def path_time(df, path):
 
     return t
 
-<<<<<<< HEAD
-def import_json():
-    with open("combinations.json") as fp:
-        return json.loads(fp.read())
-
-=======
 def import_json(filename):
     with open(filename) as fp:
         return json.loads(fp.read())
 
-def create_LP_values():
-    routes = import_json("maps" + os.sep + "combinations.json")
-    return routes["Region 1"][0]
-
-
->>>>>>> 899d4345bf99de5155f05d345277395228ad5648
-if __name__ == "__main__":
-    # df = pd.read_csv("WoolworthsTravelDurations.csv")
+def create_LP_values(filename):
+    df_t = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
-    # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    df_t.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+
+    routes = import_json("data" + os.sep + filename)
+    leng = routes["total_combinations"]
+    
+    dict = {
+        "path" : routes["combinations"], 
+        "cost" : [0]*leng
+        }
+    
+    for store in df_t.Store:
+        dict[store] = [0]*leng
+    
+    df = pd.DataFrame(dict)
+
+
+    for i in range(leng):
+        route = df.iloc[i]
+        path, cost = TSP_calculate(df_t, route.path)
+        df["path"].iloc[i] = path
+        df["cost"].iloc[i] = cost
+        for loc in path:
+            df[loc].iloc[i] = 1
+
+
+
+    return df
+    
+
+
+if __name__ == "__main__":
+    df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
+    
+    df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
     # df = df.set_index("Store")
     
-    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
-    # p,c = TSP_calculate(df,  stops)
-    # print(p,c)
-    print(create_LP_values())
+    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    p,c = TSP_calculate(df,  stops)
+    print(p,c)
+    # print(create_LP_values())
 
 
