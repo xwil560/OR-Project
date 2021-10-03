@@ -2,6 +2,7 @@ from os import path
 import numpy as np
 import pandas as pd
 import itertools as iter
+import json
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -66,6 +67,10 @@ def path_time(df, path):
     t = sum([time(*p) for p in zip(path[:-1],path[1:])]) # calculate the time taken to traverse the path by summing the distances between each pair
 
     return t
+
+def import_json():
+    with open("combinations.json") as fp:
+        return json.loads(fp.read())
 
 if __name__ == "__main__":
     df = pd.read_csv("WoolworthsTravelDurations.csv")
