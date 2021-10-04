@@ -77,8 +77,6 @@ def draw_route_between_points(ors_client, stops, coords, time_per_stop=7.5):
     # Calculate the route
     routes = ors_client.directions(coordinates = [coords[stop] for stop in stops], profile = 'driving-hgv', format = 'geojson', validate = False)
     return (routes, 
-            routes['features'][0]['properties']['summary']['distance'], 
-            routes['features'][0]['properties']['summary']['duration'] + time_per_stop*(len(stops)-2),  # Time traveling +  
             folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(stops), color="Red"))
 
 if __name__ == "__main__":
@@ -86,19 +84,21 @@ if __name__ == "__main__":
     with open("maps/keys.json") as fp:
         keys = json.loads(fp.read())
 
-    #locations = pd.read_csv("data/WoolworthsLocations.csv")
-    #coords = locations[['Long', 'Lat']]
-    #coords = coords.to_numpy().tolist()
+    locations = pd.read_csv("data/WoolworthsLocations.csv")
+    coords = locations[['Long', 'Lat']]
+    coords = coords.to_numpy().tolist()
 
-    #ors_client = ors.Client(key=keys['ORSkey'])
+    routes = []
+    with open("data/combinations_weekday.json", "r") as fp:
+        routes = json.loads(fp.read())
 
-    #m = create_map()
-    #(route, distance, duration, line) = route_between_points(ors_client, [1, 2, 3, 4], coords)
-    #line.add_to(m)
-    #print(distance, duration)
-    #travel_perm = solve_all_travel_permutations(ors_client, list(range(0,54)), coords)
-    #pd.DataFrame(travel_perm['durations']).to_csv("durations.csv")
+    ors_client = ors.Client(key=keys['ORSkey'])
 
-    #m.save("map.html")
+    m = create_map()
+    for route in routes['combinations']:
+        (route, line) = draw_route_between_points(ors_client, locations[locations['Store'].isin(route)].index, coords)
+        line.add_to(m)
 
-    #create_weekend_map().save("weekend_map.html")
+    m.save("map.html")
+
+    create_weekend_map().save("weekend_map.html")
