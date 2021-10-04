@@ -123,4 +123,4 @@ if __name__ == "__main__":
     # print(create_LP_values())
     # df = create_LP_values("combinations_weekend.json")
     # df.to_pickle("weekend_routes.pkl")
-    print(pd.read_pickle("weekend_routes.pkl"))
+    print(pd.read_pickle("weekday_routes.pkl"))
