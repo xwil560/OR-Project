@@ -15,6 +15,9 @@ if __name__ == "__main__":
     partition_data = pd.read_csv('data/WoolworthsRegions.csv')
 
     for week_stage in ["weekday", "weekend"]:
+        print(f"Generating {week_stage} partitions, routes, solutions and visualisations")
+        print("------------------------")
+
         # Generate the partitions
         if week_stage == "weekday":
             partitions.generate_paritions(partition_data, weekend=False) 

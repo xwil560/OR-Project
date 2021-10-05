@@ -54,7 +54,7 @@ def routes_solver(input_data_filename):
     print("Total Cost from Routes = ", value(prob.objective))
 
     # Return a list of the stop numbers
-    return [v.name.split("_")[-1] for v in prob.variables() if v.varValue == 1] 
+    return [int(v.name.split("_")[-1]) for v in prob.variables() if v.varValue == 1] 
 
 if __name__ == "__main__":
     routes_solver("weekday_routes.pkl")
