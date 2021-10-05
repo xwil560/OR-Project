@@ -4946,6 +4946,51 @@
             "SuperValue Papakura"
         ],
         [
+            "Countdown Airport"
+        ],
+        [
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Takanini"
+        ],
+        [
+            "FreshChoice Mangere Bridge"
+        ],
+        [
+            "FreshChoice Otahuhu"
+        ],
+        [
+            "SuperValue Flatbush"
+        ],
+        [
+            "SuperValue Papakura"
+        ],
+        [
             "Countdown Greenlane",
             "Countdown Mangere East",
             "FreshChoice Mangere Bridge",
@@ -6577,6 +6622,42 @@
         ],
         [
             "FreshChoice Mangere Bridge",
+            "FreshChoice Otahuhu"
+        ],
+        [
+            "Countdown Greenlane"
+        ],
+        [
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Sylvia Park"
+        ],
+        [
+            "FreshChoice Mangere Bridge"
+        ],
+        [
             "FreshChoice Otahuhu"
         ],
         [
@@ -9192,6 +9273,45 @@
             "SuperValue Flatbush"
         ],
         [
+            "Countdown Aviemore Drive"
+        ],
+        [
+            "Countdown Botany Downs"
+        ],
+        [
+            "Countdown Highland Park"
+        ],
+        [
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Sylvia Park"
+        ],
+        [
+            "FreshChoice Half Moon Bay"
+        ],
+        [
+            "FreshChoice Otahuhu"
+        ],
+        [
+            "SuperValue Flatbush"
+        ],
+        [
             "Countdown Auckland City",
             "Countdown Grey Lynn",
             "Countdown Metro Albert Street",
@@ -11264,6 +11384,45 @@
             "Countdown Metro Halsey Street"
         ],
         [
+            "Countdown Auckland City"
+        ],
+        [
+            "Countdown Grey Lynn"
+        ],
+        [
+            "Countdown Grey Lynn Central"
+        ],
+        [
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Victoria Street West"
+        ],
+        [
+            "Countdown Metro Albert Street"
+        ],
+        [
+            "Countdown Metro Halsey Street"
+        ],
+        [
             "Countdown Blockhouse Bay",
             "Countdown Kelston",
             "FreshChoice Glen Eden",
@@ -12464,6 +12623,36 @@
             "SuperValue Titirangi"
         ],
         [
+            "Countdown Blockhouse Bay"
+        ],
+        [
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Lynfield"
+        ],
+        [
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown St Lukes"
+        ],
+        [
+            "FreshChoice Glen Eden"
+        ],
+        [
+            "SuperValue Avondale"
+        ],
+        [
+            "SuperValue Titirangi"
+        ],
+        [
             "Countdown Birkenhead",
             "Countdown Browns Bay",
             "Countdown Glenfield"
@@ -13025,6 +13214,33 @@
         ],
         [
             "Countdown Sunnynook",
+            "Countdown Takapuna"
+        ],
+        [
+            "Countdown Birkenhead"
+        ],
+        [
+            "Countdown Browns Bay"
+        ],
+        [
+            "Countdown Glenfield"
+        ],
+        [
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Sunnynook"
+        ],
+        [
             "Countdown Takapuna"
         ],
         [
@@ -16286,7 +16502,46 @@
         [
             "SuperValue Palomino",
             "SuperValue Titirangi"
+        ],
+        [
+            "Countdown Henderson"
+        ],
+        [
+            "Countdown Hobsonville"
+        ],
+        [
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Westgate"
+        ],
+        [
+            "FreshChoice Glen Eden"
+        ],
+        [
+            "FreshChoice Ranui"
+        ],
+        [
+            "SuperValue Palomino"
+        ],
+        [
+            "SuperValue Titirangi"
         ]
     ],
-    "total_combinations": 3166
+    "total_combinations": 3251
 }
