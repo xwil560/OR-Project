@@ -30,7 +30,7 @@ def generate_paritions(partition_data, weekend=False):
         
         # Generate all combinations between lengths 5-2 and check if they
         # have a demand less than or equal to 26 (max demand).
-        combinations = [list(seq) for i in range(6, 1, -1) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
+        combinations = [list(seq) for i in range(6, 0, -1) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
 
         for route in range(len(combinations)):
             for stop in range(len(combinations[route])):

@@ -9956,6 +9956,39 @@
             "Countdown Takanini"
         ],
         [
+            "Countdown Airport"
+        ],
+        [
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Manukau"
+        ],
+        [
+            "Countdown Manukau Mall"
+        ],
+        [
+            "Countdown Manurewa"
+        ],
+        [
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Papakura"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown Roselands"
+        ],
+        [
+            "Countdown Takanini"
+        ],
+        [
             "Countdown Greenlane",
             "Countdown Mangere East",
             "Countdown Mangere Mall",
@@ -15440,6 +15473,36 @@
             "Countdown Sylvia Park"
         ],
         [
+            "Countdown Greenlane"
+        ],
+        [
+            "Countdown Mangere East"
+        ],
+        [
+            "Countdown Mangere Mall"
+        ],
+        [
+            "Countdown Meadowbank"
+        ],
+        [
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Onehunga"
+        ],
+        [
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown St Johns"
+        ],
+        [
+            "Countdown Sylvia Park"
+        ],
+        [
             "Countdown Aviemore Drive",
             "Countdown Botany Downs",
             "Countdown Highland Park",
@@ -20921,6 +20984,36 @@
         ],
         [
             "Countdown St Johns",
+            "Countdown Sylvia Park"
+        ],
+        [
+            "Countdown Aviemore Drive"
+        ],
+        [
+            "Countdown Botany Downs"
+        ],
+        [
+            "Countdown Highland Park"
+        ],
+        [
+            "Countdown Howick"
+        ],
+        [
+            "Countdown Meadowlands"
+        ],
+        [
+            "Countdown Mt Wellington"
+        ],
+        [
+            "Countdown Pakuranga"
+        ],
+        [
+            "Countdown Papatoetoe"
+        ],
+        [
+            "Countdown St Johns"
+        ],
+        [
             "Countdown Sylvia Park"
         ],
         [
@@ -30879,6 +30972,39 @@
             "Countdown Victoria Street West"
         ],
         [
+            "Countdown Auckland City"
+        ],
+        [
+            "Countdown Grey Lynn"
+        ],
+        [
+            "Countdown Grey Lynn Central"
+        ],
+        [
+            "Countdown Mt Eden"
+        ],
+        [
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Newmarket"
+        ],
+        [
+            "Countdown Ponsonby"
+        ],
+        [
+            "Countdown Pt Chevalier"
+        ],
+        [
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Three Kings"
+        ],
+        [
+            "Countdown Victoria Street West"
+        ],
+        [
             "Countdown Blockhouse Bay",
             "Countdown Kelston",
             "Countdown Lynfield",
@@ -31548,6 +31674,27 @@
         ],
         [
             "Countdown Pt Chevalier",
+            "Countdown St Lukes"
+        ],
+        [
+            "Countdown Blockhouse Bay"
+        ],
+        [
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Lynfield"
+        ],
+        [
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Mt Roskill"
+        ],
+        [
+            "Countdown Pt Chevalier"
+        ],
+        [
             "Countdown St Lukes"
         ],
         [
@@ -34425,6 +34572,33 @@
             "Countdown Takapuna"
         ],
         [
+            "Countdown Birkenhead"
+        ],
+        [
+            "Countdown Browns Bay"
+        ],
+        [
+            "Countdown Glenfield"
+        ],
+        [
+            "Countdown Hauraki Corner"
+        ],
+        [
+            "Countdown Mairangi Bay"
+        ],
+        [
+            "Countdown Milford"
+        ],
+        [
+            "Countdown Northcote"
+        ],
+        [
+            "Countdown Sunnynook"
+        ],
+        [
+            "Countdown Takapuna"
+        ],
+        [
             "Countdown Henderson",
             "Countdown Hobsonville",
             "Countdown Kelston",
@@ -37297,7 +37471,34 @@
         [
             "Countdown Te Atatu South",
             "Countdown Westgate"
+        ],
+        [
+            "Countdown Henderson"
+        ],
+        [
+            "Countdown Hobsonville"
+        ],
+        [
+            "Countdown Kelston"
+        ],
+        [
+            "Countdown Lincoln Road"
+        ],
+        [
+            "Countdown Lynmall"
+        ],
+        [
+            "Countdown Northwest"
+        ],
+        [
+            "Countdown Te Atatu"
+        ],
+        [
+            "Countdown Te Atatu South"
+        ],
+        [
+            "Countdown Westgate"
         ]
     ],
-    "total_combinations": 5653
+    "total_combinations": 5720
 }

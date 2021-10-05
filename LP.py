@@ -7,8 +7,8 @@ import pickle as pkl
 
 def weekday_routes_solver():
     # read in the pickle
-    # data =pd.read_pickle("data" + os.sep + "weekday_routes.pkl")
-    data = pd.read_csv("data" + os.sep + "testdata.csv")
+    data =pd.read_pickle("data" + os.sep + "weekday_routes.pkl")
+    # data = pd.read_csv("data" + os.sep + "testdata.csv")
 
     #for i in range(68):
     #    print(data.columns[i]) 
@@ -43,14 +43,20 @@ def weekday_routes_solver():
     # Solving routines - no need to modify
     # prob.writeLP('Routes.lp')
 
+    import time
+    start = time.time()
+    #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
     prob.solve()
+    end = time.time()
+    print(end-start)
 
     # The status of the solution is printed to the screen
-    print("Status:", LpStatus[prob.status])
+    #print("Status:", LpStatus[prob.status])
 
     # Each of the variables is printed with its resolved optimum value
     for v in prob.variables():
-        print(v.name, "=", v.varValue)
+        if v.varValue == 1:
+            print(data.path.iloc[int(v.name.split("_")[-1])], "=", v.varValue)
 
     # The optimised objective function valof Ingredients pue is printed to the screen    
     print("Total Cost from Routes = ", value(prob.objective))
