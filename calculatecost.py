@@ -93,7 +93,8 @@ def create_LP_values(filename):
         } # initialise dictionary to create 
     
     for store in df_t.Store: # add a column for each location
-        dict[store] = [0]*leng
+        if store != "Distribution Centre Auckland":
+            dict[store] = [0]*leng
     
     df = pd.DataFrame(dict) # make into df
 
@@ -111,6 +112,7 @@ def create_LP_values(filename):
     return df
     
 
+
 if __name__ == "__main__":
     # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
@@ -121,6 +123,6 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    df = create_LP_values("combinations_weekday.json")
-    df.to_pickle("data" + os.sep + "weekday_routes.pkl")
-    #print(pd.read_pickle("weekday_routes.pkl"))
+    df = create_LP_values("combinations_weekend.json")
+    df.to_pickle("weekend_routes.pkl")
+    # print(pd.read_pickle("weekday_routes.pkl"))
