@@ -45,7 +45,8 @@ def weekday_routes_solver():
 
     import time
     start = time.time()
-    prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    prob.solve()
     end = time.time()
     print(end-start)
 
