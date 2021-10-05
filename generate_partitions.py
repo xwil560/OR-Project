@@ -1,6 +1,7 @@
 import json
 import itertools
 import pandas as pd
+from tqdm import tqdm
 
 def generate_paritions(partition_data, weekend=False):
 
@@ -30,7 +31,7 @@ def generate_paritions(partition_data, weekend=False):
         
         # Generate all combinations between lengths 5-2 and check if they
         # have a demand less than or equal to 26 (max demand).
-        combinations = [list(seq) for i in range(6, 0, -1) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
+        combinations = [list(seq) for i in tqdm(range(6, 0, -1)) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
 
         for route in range(len(combinations)):
             for stop in range(len(combinations[route])):
@@ -49,7 +50,6 @@ def generate_paritions(partition_data, weekend=False):
     else:
         with open('data/combinations_weekend.json', 'w') as fp:
             fp.write(json.dumps(output, indent=4))
-
 
 
 if __name__ == "__main__":
