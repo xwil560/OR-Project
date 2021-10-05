@@ -4,9 +4,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import re
 
-demand = pd.read_csv("WoolworthsDemands.csv")
-locations = pd.read_csv("WoolworthsLocations.csv")
-travelDur = pd.read_csv("WoolworthsTravelDurations.csv")
+demand = pd.read_csv("data/WoolworthsDemands.csv")
+locations = pd.read_csv("data/WoolworthsLocations.csv")
+travelDur = pd.read_csv("data/WoolworthsTravelDurations.csv")
 
 demand_long = demand.melt(id_vars = 'Store',var_name='Date', value_name='Demand' ) # pivot longer on dates
 
