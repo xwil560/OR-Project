@@ -121,6 +121,6 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    df = create_LP_values("combinations_weekend.json")
-    df.to_pickle("data" + os.sep + "weekend_routes.pkl")
+    df = create_LP_values("combinations_weekday.json")
+    df.to_pickle("data" + os.sep + "weekday_routes.pkl")
     #print(pd.read_pickle("weekday_routes.pkl"))

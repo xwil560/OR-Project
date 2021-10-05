@@ -43,10 +43,14 @@ def weekday_routes_solver():
     # Solving routines - no need to modify
     # prob.writeLP('Routes.lp')
 
-    prob.solve()
+    import time
+    start = time.time()
+    prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    end = time.time()
+    print(end-start)
 
     # The status of the solution is printed to the screen
-    print("Status:", LpStatus[prob.status])
+    #print("Status:", LpStatus[prob.status])
 
     # Each of the variables is printed with its resolved optimum value
     for v in prob.variables():
