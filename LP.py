@@ -7,16 +7,11 @@ import pickle as pkl
 
 def weekday_routes_solver():
     # read in the pickle
-    data =pd.read_pickle("data" + os.sep + "weekday_routes.pkl")
-    # data = pd.read_csv("data" + os.sep + "testdata.csv")
-
-    #for i in range(68):
-    #    print(data.columns[i]) 
-
+    data =pd.read_pickle("data" + os.sep + "weekend_routes.pkl")
+    # data = pd.read_csv("data" + os.sep + "testdata2.csv")
     cost = data["cost"]
-    A = data.drop(["cost","path"],axis=1)
-    print(A)
-
+    A = data.drop(["cost","path", "Distribution Centre Auckland"],axis=1)
+    A = A.loc[:,~A.eq(0).all()]
     routes = np.arange(len(data))
     
     R1=LpVariable.dicts("Shift 1",routes,0,1,LpBinary)
@@ -33,7 +28,7 @@ def weekday_routes_solver():
     
     # Store Delivery Maximum
     for loc in A.columns:
-        prob += lpSum([A[loc].iloc[i]*(R1[i]+R2[i]) + A[loc].iloc[i]*(DF1[i]+DF2[i]) for i in routes]) == 1, "Store Delivery Maximum"+loc
+        prob += lpSum([A[loc].iloc[i]*(R1[i]+R2[i]+DF1[i]+DF2[i]) for i in routes]) == 1, "Store Delivery Maximum"+loc
 
     
     prob += lpSum([R1[i] for i in routes]) <= 30, 'Max trucks on Route 1'
