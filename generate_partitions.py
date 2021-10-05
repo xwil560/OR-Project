@@ -2,14 +2,19 @@ import json
 import itertools
 import pandas as pd
 
-def generate_paritions(partition_data, filename):
+def generate_paritions(partition_data, weekend=False):
 
-    demand_dict = {
-        'Countdown': 8,
-        'FreshChoice': 5,
-        'SuperValue': 5,
-        'Countdown Metro':5
-    }
+    if weekend:
+        demand_dict = {
+            'Countdown': 4
+        }
+    else:
+        demand_dict = {
+            'Countdown': 8,
+            'FreshChoice': 5,
+            'SuperValue': 5,
+            'Countdown Metro':5
+        }
 
     # Add the demand data directly into the table
     partition_data['Demand'] = partition_data['Type'].map(demand_dict)
@@ -25,7 +30,7 @@ def generate_paritions(partition_data, filename):
         
         # Generate all combinations between lengths 5-2 and check if they
         # have a demand less than or equal to 26 (max demand).
-        combinations = [list(seq) for i in range(5, 1, -1) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
+        combinations = [list(seq) for i in range(6, 1, -1) for seq in list(itertools.combinations(stores_in_region.index, i)) if sum(partition_data.iloc[list(seq)]['Demand']) <= 26]
 
         for route in range(len(combinations)):
             for stop in range(len(combinations[route])):
@@ -38,15 +43,20 @@ def generate_paritions(partition_data, filename):
     output['total_combinations'] = total_combinations
 
     # Write to file 
-    with open(filename, 'w') as fp:
-        fp.write(json.dumps(output, indent=4))
+    if not weekend:
+        with open('data/combinations_weekday.json', 'w') as fp:
+            fp.write(json.dumps(output, indent=4))
+    else:
+        with open('data/combinations_weekend.json', 'w') as fp:
+            fp.write(json.dumps(output, indent=4))
+
 
 
 if __name__ == "__main__":
     partition_data = pd.read_csv('data/WoolworthsRegions.csv')
 
-    generate_paritions(partition_data, filename='data/combinations_weekday.json')
+    generate_paritions(partition_data, weekend=False) 
 
     weekend_data = partition_data[partition_data['Type'] == 'Countdown']
     
-    generate_paritions(weekend_data, filename='data/combinations_weekend.json')
+    generate_paritions(weekend_data, weekend=True)
