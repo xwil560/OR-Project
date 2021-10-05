@@ -5,12 +5,12 @@ import pandas as pd
 from pulp import *
 import pickle as pkl
 
-def weekday_routes_solver():
+def routes_solver(input_data_filename):
     # read in the pickle
-    data =pd.read_pickle("data" + os.sep + "weekend_routes.pkl")
-    # data = pd.read_csv("data" + os.sep + "testdata2.csv")
+    data =pd.read_pickle("data" + os.sep + input_data_filename)
+    
     cost = data["cost"]
-    A = data.drop(["cost","path", "Distribution Centre Auckland"],axis=1)
+    A = data.drop(["cost","path"],axis=1)
     A = A.loc[:,~A.eq(0).all()]
     routes = np.arange(len(data))
     
@@ -24,18 +24,15 @@ def weekday_routes_solver():
 
     # Objective Function
     prob += lpSum([((DF2[i]+DF1[i])*2000) + (R1[i]+R2[i])*cost[i] for i in routes])
-
     
     # Store Delivery Maximum
     for loc in A.columns:
         prob += lpSum([A[loc].iloc[i]*(R1[i]+R2[i]+DF1[i]+DF2[i]) for i in routes]) == 1, "Store Delivery Maximum"+loc
-
     
     prob += lpSum([R1[i] for i in routes]) <= 30, 'Max trucks on Route 1'
     prob += lpSum([R2[i] for i in routes]) <= 30, 'Max trucks on Route 2'
 
-
-    # Solving routines - no need to modify
+    # Solving routines
     # prob.writeLP('Routes.lp')
 
     import time
@@ -55,7 +52,10 @@ def weekday_routes_solver():
 
     # The optimised objective function valof Ingredients pue is printed to the screen    
     print("Total Cost from Routes = ", value(prob.objective))
-    
+
+    # Return a list of the stop numbers
+    return [v.name.split("_")[-1] for v in prob.variables() if v.varValue == 1] 
 
 if __name__ == "__main__":
-    weekday_routes_solver()
+    routes_solver("weekday_routes.pkl")
+    routes_solver("weekend_routes.pkl")

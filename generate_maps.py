@@ -105,15 +105,15 @@ def generate_selected_routes(ors_client, selected_routes, locations, route_df_fi
         route_lines.append(line)
     return route_lines
 
+def read_keys():
+    with open("maps/keys.json") as fp:
+        return json.loads(fp.read())
+
 if __name__ == "__main__":
     # Load the ORS key (we don't stop this on git for security reasons)
-
-    keys = []
-    with open("maps/keys.json") as fp:
-        keys = json.loads(fp.read())
+    keys = read_keys()
 
     # Load the data
-
     locations = pd.read_csv("data/WoolworthsLocations.csv", index_col='Store')
     ors_client = ors.Client(key=keys['ORSkey'])
 
