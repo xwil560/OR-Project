@@ -4,7 +4,21 @@ import pandas as pd
 from tqdm import tqdm
 
 def generate_paritions(partition_data, weekend=False):
+    '''
+    Generates all possible partitions of a regioned dataset and saves as a file.
 
+    inputs:
+    ------
+    paritions_data : pandas dataframe
+        A dataframe with each stop and a binary column for each region that the stops belong too.
+    weekend : boolean
+        Boolean set depending on what the input dataset time period is.
+
+    outputs:
+    -------
+    paritions : file
+        A json dictionary of all possible partitions written to disk.
+    '''
     if weekend:
         demand_dict = {
             'Countdown': 4
