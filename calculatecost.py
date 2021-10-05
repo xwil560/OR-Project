@@ -80,6 +80,21 @@ def import_json(filename):
         return json.loads(fp.read())
 
 def create_LP_values(filename):
+    '''
+    creates a dataframe to be used in the linear program formulation
+    
+    
+    inputs:
+    ------
+    filename : string
+        name of the json file in the data folder containing hte relevant routes being used 
+    
+    outputs:
+    -------
+    df : pandas Dataframe
+        dataframe containing all the information needed to solve the LP
+    '''
+
     df_t = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv") # read in csv of times
     
     df_t.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True) # modify to the correct format for the TSP_calculate func
