@@ -8,14 +8,9 @@ import pickle as pkl
 def weekday_routes_solver():
     # read in the pickle
     data =pd.read_pickle("data" + os.sep + "weekday_routes.pkl")
-    # data = pd.read_csv("data" + os.sep + "testdata.csv")
-
-    #for i in range(68):
-    #    print(data.columns[i]) 
 
     cost = data["cost"]
     A = data.drop(["cost","path"],axis=1)
-    print(A)
 
     routes = np.arange(len(data))
     
