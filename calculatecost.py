@@ -4,6 +4,7 @@ import itertools as iter
 import json
 import os
 import pickle as pkl
+from tqdm import trange 
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -97,7 +98,7 @@ def create_LP_values(filename):
     df = pd.DataFrame(dict) # make into df
 
 
-    for i in range(leng): # for every route
+    for i in trange(leng): # for every route
         route = df.iloc[i] # take data for route 
         path, cost = TSP_calculate(df_t, route.path) # find the shortest path and its cost 
         df["path"].iloc[i] = path # add the optimal path and cost to the df
@@ -110,7 +111,6 @@ def create_LP_values(filename):
     return df
     
 
-
 if __name__ == "__main__":
     # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
@@ -121,6 +121,6 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    # df = create_LP_values("combinations_weekend.json")
-    # df.to_pickle("weekend_routes.pkl")
-    print(pd.read_pickle("weekday_routes.pkl"))
+    df = create_LP_values("combinations_weekend.json")
+    df.to_pickle("data" + os.sep + "weekend_routes.pkl")
+    #print(pd.read_pickle("weekday_routes.pkl"))
