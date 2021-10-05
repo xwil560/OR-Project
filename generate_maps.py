@@ -59,7 +59,7 @@ def create_weekend_map():
     }
 
     for i in range(0, len(coords)):
-        if locations.Type[i] == "Countdown":
+        if locations.Type[i] == "Countdown" or locations.Type[i] == "Distribution Centre":
             folium.Circle(list(reversed(coords[i])), radius=250, fill=True, popup=locations.Store[i], color=colour_dict[locations.Type[i]]).add_to(m)
 
     return m
@@ -97,7 +97,7 @@ def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour
 def generate_selected_routes(ors_client, selected_routes, locations, route_df_filename="weekday_routes.pkl"):
     routes_df = pd.read_pickle(route_df_filename)
     route_lines = []
-    palette = sns.color_palette(None, len(selected_routes)).as_hex()
+    palette = sns.color_palette("hls", len(selected_routes)).as_hex()
     for i, route in enumerate(selected_routes):
         print("Drawing route {}".format(str(route)))
         (route, line) = draw_route(ors_client, route, routes_df, locations, route_colour=palette[i])
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     m = create_weekday_map()
     
-    selected_weekday_routes = [4,425,682,941,1024,2048,3000]
+    selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
     [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekday_routes, locations, route_df_filename="data/weekday_routes.pkl")]
 
     m.save("maps/weekday_map.html")
@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
     m = create_weekend_map()
 
-    selected_weekend_routes = [425,682,941,1024]
+    selected_weekend_routes = [2312,3196,4023,4721,5087,5484,549,791,1584,4814,5329]
     [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekend_routes, locations, route_df_filename="data/weekend_routes.pkl")]
 
     m.save("maps/weekend_map.html")
