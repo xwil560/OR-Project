@@ -37,7 +37,6 @@ if __name__ == "__main__":
 
         # Solve LP for routes
         route_numbers = lp.routes_solver(f"{week_stage}_routes.pkl")
-        print(route_numbers)
         
         #keys = maps.read_keys()
         
