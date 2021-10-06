@@ -8,7 +8,7 @@ from tqdm import trange
 import numba
 
 
-def TSP_calculate(df_time,  stops):
+def TSP_calculate(df_time,  stops, weekends=False):
     '''
     Takes a list of stops and computes the best order to travel them in
     
@@ -29,23 +29,34 @@ def TSP_calculate(df_time,  stops):
     '''
     
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
-
+    df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    if weekends:
+        demands = {
+            "Countdown" : 4
+        }
+    else:
+        demands = {
+            "Countdown" : 8,
+            "Countdown Metro" : 5,
+            "SuperValue" : 5,
+            "FreshChoice" : 5,
+        }       
     df_time = df_time.set_index("Store")
 
     df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
-    
+    storetypes = df_locs.loc[[l in stops for l in df_locs.Store],"Type"]
+    totalpalettes = sum([demands[s] for s in storetypes])
     time = lambda p: path_time(df,p) # partial function evaluates the time of a path using the subsetted dataframe
 
     times = list(map(time, paths)) # generate list of times by mapping the time function to each possible path
 
     mindex = np.argmin(times) # find the index with the shortest time
 
-    total_time = (times[mindex])/60
+    total_time = (times[mindex])/60  +7.5*totalpalettes
 
     if total_time <= 240: # evaluate how expensive running this path is 
-        cost = 3.75*((times[mindex])/60) 
-    else:
-        cost = 3.75*240 + (275/60)*((times[mindex])/60 -240)
+        cost = 3.75*total_time
+        cost = 3.75*240 + (275/60)*(total_time -240)
 
     path = list(paths[mindex]) # convert the optimal path as a list 
     
@@ -130,15 +141,15 @@ def create_LP_values(filename):
     
 
 if __name__ == "__main__":
-    # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
+    df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
-    # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
-    # # df = df.set_index("Store")
+    df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    # df = df.set_index("Store")
     
-    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
-    # p,c = TSP_calculate(df,  stops)
-    # print(p,c)
-    # print(create_LP_values())
-    df = create_LP_values("combinations_weekend.json")
-    df.to_pickle("weekend_routes.pkl")
+    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    p,c = TSP_calculate(df,  stops)
+    print(p,c)
+    # # print(create_LP_values())
+    # df = create_LP_values("combinations_weekend.json")
+    # df.to_pickle("weekend_routes.pkl")
     # print(pd.read_pickle("weekday_routes.pkl"))
