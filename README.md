@@ -46,7 +46,7 @@
 	- Print out average demand of the three categories
 	
 - `generate_partitions.py` : 
-	- function : generate_partitions
+	- function : `generate_partitions`
 		- Takes in dataframe with each stop and a binary column for each region that the stop belongs to.
 		- Takes in boolean relating to what input dataset is being used (weekday/weekend)
 		- Sets demand values as constants for each store type and adds to dataframe
