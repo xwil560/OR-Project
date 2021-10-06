@@ -6,6 +6,18 @@ import json
 import seaborn as sns
 
 def create_weekday_map():
+    '''
+    Creates a map object with our preconfigured map type with the weekday store locations. 
+    
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    m : folium object
+        The folium map object that can be displayed/changed.
+    '''
     locations = pd.read_csv("data/WoolworthsLocations.csv")
     coords = get_coords_from_locations(locations)
 
@@ -36,6 +48,18 @@ def create_weekday_map():
 
 
 def create_weekend_map():
+    '''
+    Creates a map object with our preconfigured map type with the weekend store locations. 
+    
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    m : folium object
+        The folium map object that can be displayed/changed.
+    '''
     locations = pd.read_csv("data/WoolworthsLocations.csv")
     coords = get_coords_from_locations(locations)
 
@@ -60,7 +84,7 @@ def create_weekend_map():
     }
 
     for i in range(0, len(coords)):
-        if locations.Type[i] == "Countdown":
+        if locations.Type[i] == "Countdown" or locations.Type[i] == "Distribution Centre":
             folium.Circle(list(reversed(coords[i])), radius=250, fill=True, popup=locations.Store[i], color=colour_dict[locations.Type[i]]).add_to(m)
 
     return m
@@ -76,11 +100,48 @@ def create_weekend_map():
 #            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = "", color="Red"))
 
 def get_coords_from_locations(locations_data):
+    '''
+    Generates a subset dataset of coordinates which can be indexed using the store numbers.
+
+    inputs:
+    ------
+    locations_data : pandas dataframe
+        A dataframe containing indexed "Long" and "Lat" columns (in axis 1).
+
+    outputs:
+    -------
+    coords : list
+        A two dimensional list of the "Long" and "Lat" columns.
+    '''
     coords = locations_data[['Long', 'Lat']]
     coords = coords.to_numpy().tolist()
     return coords
 
 def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour="White"):
+    '''
+    Returns a folium line object that corresponds to the route specified.
+
+    inputs:
+    ------
+    ors_client : openrouteservice object
+        The client object from the ORS python package.
+    route_number : int
+        The route number (index).
+    route_df : pandas dataframe
+        The routes dataframe containing the TSP calculated route path.
+    cd_locations_df : pandas dataframe
+        The dataframe of the locations of stores in Auckland.
+    route_colour : string
+        The colour of the folium line.
+
+    outputs:
+    -------
+    tuple :
+        routes : openrouteservice object
+            Contains the route details.
+        line : folium line object
+            Contains the line object that can be written to the map.
+    '''
     # Convert the stops into id's
     route_data = route_df[route_df.index == route_number]
     stop_coords = cd_locations_df[cd_locations_df.index.isin(list(route_data['path'])[0])][['Long', 'Lat']].to_numpy().tolist()
@@ -96,24 +157,55 @@ def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour
             folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_data['path']), color=route_colour))
 
 def generate_selected_routes(ors_client, selected_routes, locations, route_df_filename="weekday_routes.pkl"):
+    '''
+    Returns a list of folium line objects that correspond to the routes specified.
+
+    inputs:
+    ------
+    ors_client : openrouteservice object
+        The client object from the ORS python package.
+    selected_routes : list[int]
+        The selected route numbers (indexes).
+    locations : pandas dataframe
+        The dataframe of the locations of stores in Auckland.
+    route_df_filename : string
+        The filename of the route dataframe (stored as a pickle).
+
+    outputs:
+    -------
+    route_lines : list[folium object]
+        A python list of all the folium line object routes to be graphed to a map.
+    '''
     routes_df = pd.read_pickle(route_df_filename)
     route_lines = []
-    palette = sns.color_palette(None, len(selected_routes)).as_hex()
+    palette = sns.color_palette("hls", len(selected_routes)).as_hex()
     for i, route in enumerate(selected_routes):
         print("Drawing route {}".format(str(route)))
         (route, line) = draw_route(ors_client, route, routes_df, locations, route_colour=palette[i])
         route_lines.append(line)
     return route_lines
 
+def read_keys():
+    '''
+    Reads the secure key set (keys that we don't want on git version control).
+
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    keys : dict
+        A json dictionary of the keys file.
+    '''
+    with open("maps/keys.json") as fp:
+        return json.loads(fp.read())
+
 if __name__ == "__main__":
     # Load the ORS key (we don't stop this on git for security reasons)
-
-    keys = []
-    with open("maps/keys.json") as fp:
-        keys = json.loads(fp.read())
+    keys = read_keys()
 
     # Load the data
-
     locations = pd.read_csv("data/WoolworthsLocations.csv", index_col='Store')
     ors_client = ors.Client(key=keys['ORSkey'])
 
@@ -121,7 +213,7 @@ if __name__ == "__main__":
 
     m = create_weekday_map()
     
-    selected_weekday_routes = [4,425,682,941,1024,2048,3000]
+    selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
     [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekday_routes, locations, route_df_filename="data/weekday_routes.pkl")]
 
     m.save("maps/weekday_map.html")
@@ -130,7 +222,7 @@ if __name__ == "__main__":
 
     m = create_weekend_map()
 
-    selected_weekend_routes = [425,682,941,1024]
+    selected_weekend_routes = [2312,3196,4023,4721,5087,5484,549,791,1584,4814,5329]
     [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekend_routes, locations, route_df_filename="data/weekend_routes.pkl")]
 
     m.save("maps/weekend_map.html")
