@@ -5,6 +5,8 @@ import json
 import os
 import pickle as pkl
 from tqdm import trange 
+import numba
+
 
 def TSP_calculate(df_time,  stops):
     '''
@@ -41,9 +43,9 @@ def TSP_calculate(df_time,  stops):
     total_time = (times[mindex])/60 + 7.5*len(stops)
 
     if total_time <= 240: # evaluate how expensive running this path is 
-        cost = 3.75*((times[mindex])/60 + 7.5*len(stops)) 
+        cost = 3.75*((times[mindex])/60) 
     else:
-        cost = 3.75*240 + (275/60)*((times[mindex])/60 + 7.5*len(stops)-240)
+        cost = 3.75*240 + (275/60)*((times[mindex])/60 -240)
 
     path = list(paths[mindex]) # convert the optimal path as a list 
     
@@ -126,7 +128,6 @@ def create_LP_values(filename):
 
     return df
     
-
 
 if __name__ == "__main__":
     # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
