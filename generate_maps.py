@@ -222,7 +222,7 @@ if __name__ == "__main__":
 
     m = create_weekend_map()
 
-    selected_weekend_routes = [2312,3196,4023,4721,5087,5484,549,791,1584,4814,5329]
+    selected_weekend_routes = [2333, 3227, 4054, 4763, 4863, 5136, 5387, 5542, 791, 1595, 549] 
     [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekend_routes, locations, route_df_filename="data/weekend_routes.pkl")]
 
     m.save("maps/weekend_map.html")
