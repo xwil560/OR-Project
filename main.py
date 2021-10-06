@@ -14,6 +14,9 @@ if __name__ == "__main__":
     # Generate the partitions
     partition_data = pd.read_csv('data/WoolworthsRegions.csv')
 
+    keys = {}
+    keys['ORSkey'] = input("Please enter your ORS Key: ")
+    
     for week_stage in ["weekday", "weekend"]:
         print(f"Generating {week_stage} partitions, routes, solutions and visualisations")
         print("------------------------")
@@ -35,7 +38,7 @@ if __name__ == "__main__":
         # Solve LP for routes
         route_numbers = lp.routes_solver(f"{week_stage}_routes.pkl")
         
-        keys = maps.read_keys()
+        #keys = maps.read_keys()
         
         ors_client = ors.Client(key=keys['ORSkey'])
 
