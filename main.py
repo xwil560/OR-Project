@@ -46,4 +46,4 @@ if __name__ == "__main__":
         
         [line.add_to(m) for line in maps.generate_selected_routes(ors_client, route_numbers, locations, route_df_filename="data/weekday_routes.pkl")]
 
-        m.save("maps/{week_stage}_map.html")
+        m.save(f"maps/{week_stage}_map.html")
