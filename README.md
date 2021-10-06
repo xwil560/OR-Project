@@ -1,9 +1,8 @@
 # ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ
-----------
 Group 17
 
 ## Table of Contents
-- [# ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ](#-engsci-263-operations-research-project-truck-scheduling-and-efficiency-for-woolworths-nz)
+- [ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ](#-engsci-263-operations-research-project-truck-scheduling-and-efficiency-for-woolworths-nz)
 - [Table of Contents](#table-of-contents)
 - [Description](#description)
 - [Instructions](#instructions)
