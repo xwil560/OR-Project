@@ -1,5 +1,5 @@
 # ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ
-Group 17
+### Group 17
 
 ## Table of Contents
 - [ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ](#-engsci-263-operations-research-project-truck-scheduling-and-efficiency-for-woolworths-nz)
@@ -7,7 +7,7 @@ Group 17
 - [Description](#description)
 - [Instructions](#instructions)
 - [Code File Summary](#code-file-summary)
-	- [Data File Summary](#data-file-summary)
+- [Data File Summary](#data-file-summary)
 
 ## Description
 - This set of programs works to model and analyse the problem of scheduling a delivery scheme for Woolworths NZ stores in Auckland.
@@ -45,7 +45,7 @@ Group 17
 	- Create and plot histograms for all three categories (frequency against demand)
 	- Print out average demand of the three categories
 	
--`generate_partitions.py` : 
+- `generate_partitions.py` : 
 	- function : generate_partitions
 		- Takes in dataframe with each stop and a binary column for each region that the stop belongs to.
 		- Takes in boolean relating to what input dataset is being used (weekday/weekend)
@@ -63,10 +63,10 @@ Group 17
 		- Initialises map plot
 		- Gets latitude/longitude values
 		- Plots all Countdown locations and distribution centre as circles
-	- function : `get_coords_from_locations` (called by create_weekday_map and create_weekend_map)
+	- function : `get_coords_from_locations` (called by `create_weekday_map` and `create_weekend_map`)
 		- Takes in location data as dataframe
 		- Returns longitude and latitude values as a list
-	- function : `draw_route` (called by generate_selected_routes)
+	- function : `draw_route` (called by `generate_selected_routes`)
 		- Takes in Openrouteservice client
 		- Takes in dataframes for routes and locations
 		- Takes in route number to plot
@@ -95,14 +95,14 @@ Group 17
 		- Makes dataframe for durations between each pair of locations
 		- Makes dataframe for route combinations containing the stores visited (as a binary matrix) and the cost associated with the shortest path of the route
 		- Returns route combination dataframe
-	- function : `TSP_calculate` (called by create_LP_values)
+	- function : `TSP_calculate` (called by `create_LP_values`)
 		- Takes in a dataframe of times between locations
 		- Takes in a list of the stops in a specific route combination
 		- Evaluates the total time taken to traverse all arrangements of the given route
 		- Stores the shortest time and associated pathway arrangement
 		- Calculates the cost associated with the shortest path
 		- Returns shortest path and cost
-	- function : `path_time` (called by TSP_calculate)
+	- function : `path_time` (called by `TSP_calculate`)
 		- Takes in dataframe containing durations between each pair of locations
 		- Takes in path list containing the order in which stores are visited
 		- Calculates the time taken to traverse a path in a specific order
