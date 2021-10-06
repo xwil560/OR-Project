@@ -92,7 +92,7 @@ def import_json(filename):
     with open(filename) as fp:
         return json.loads(fp.read())
 
-def create_LP_values(filename):
+def create_LP_values(filename, weekend=False):
     '''
     creates a dataframe to be used in the linear program formulation
     
@@ -129,7 +129,7 @@ def create_LP_values(filename):
 
     for i in trange(leng): # for every route
         route = df.iloc[i] # take data for route 
-        path, cost = TSP_calculate(df_t, route.path) # find the shortest path and its cost 
+        path, cost = TSP_calculate(df_t, route.path,weekend) # find the shortest path and its cost 
         df["path"].iloc[i] = path # add the optimal path and cost to the df
         df["cost"].iloc[i] = cost
         for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
@@ -141,15 +141,15 @@ def create_LP_values(filename):
     
 
 if __name__ == "__main__":
-    df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
+    # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     
-    df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
-    # df = df.set_index("Store")
+    # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
+    # # df = df.set_index("Store")
     
-    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
-    p,c = TSP_calculate(df,  stops)
-    print(p,c)
+    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    # p,c = TSP_calculate(df,  stops)
+    # print(p,c)
     # # print(create_LP_values())
-    # df = create_LP_values("combinations_weekend.json")
-    # df.to_pickle("weekend_routes.pkl")
+    df = create_LP_values("combinations_weekend.json", weekend=True)
+    df.to_pickle("weekend_routes.pkl")
     # print(pd.read_pickle("weekday_routes.pkl"))
