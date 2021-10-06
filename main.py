@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
         # Solve LP for routes
         route_numbers = lp.routes_solver(f"{week_stage}_routes.pkl")
+        print(route_numbers)
         
         #keys = maps.read_keys()
         
@@ -47,6 +48,6 @@ if __name__ == "__main__":
         # Map the resulting routes
         m = getattr(maps, f"create_{week_stage}_map")()
         
-        [line.add_to(m) for line in maps.generate_selected_routes(ors_client, route_numbers, locations, route_df_filename="data/weekday_routes.pkl")]
+        [line.add_to(m) for line in maps.generate_selected_routes(ors_client, route_numbers, locations, route_df_filename=f"data/{week_stage}_routes.pkl")]
 
         m.save(f"maps/{week_stage}_map.html")
