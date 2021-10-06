@@ -6,6 +6,18 @@ import json
 import seaborn as sns
 
 def create_weekday_map():
+    '''
+    Creates a map object with our preconfigured map type with the weekday store locations. 
+    
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    m : folium object
+        The folium map object that can be displayed/changed.
+    '''
     locations = pd.read_csv("data/WoolworthsLocations.csv")
     coords = get_coords_from_locations(locations)
 
@@ -36,6 +48,18 @@ def create_weekday_map():
 
 
 def create_weekend_map():
+    '''
+    Creates a map object with our preconfigured map type with the weekend store locations. 
+    
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    m : folium object
+        The folium map object that can be displayed/changed.
+    '''
     locations = pd.read_csv("data/WoolworthsLocations.csv")
     coords = get_coords_from_locations(locations)
 
@@ -76,11 +100,48 @@ def create_weekend_map():
 #            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = "", color="Red"))
 
 def get_coords_from_locations(locations_data):
+    '''
+    Generates a subset dataset of coordinates which can be indexed using the store numbers.
+
+    inputs:
+    ------
+    locations_data : pandas dataframe
+        A dataframe containing indexed "Long" and "Lat" columns (in axis 1).
+
+    outputs:
+    -------
+    coords : list
+        A two dimensional list of the "Long" and "Lat" columns.
+    '''
     coords = locations_data[['Long', 'Lat']]
     coords = coords.to_numpy().tolist()
     return coords
 
 def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour="White"):
+    '''
+    Returns a folium line object that corresponds to the route specified.
+
+    inputs:
+    ------
+    ors_client : openrouteservice object
+        The client object from the ORS python package.
+    route_number : int
+        The route number (index).
+    route_df : pandas dataframe
+        The routes dataframe containing the TSP calculated route path.
+    cd_locations_df : pandas dataframe
+        The dataframe of the locations of stores in Auckland.
+    route_colour : string
+        The colour of the folium line.
+
+    outputs:
+    -------
+    tuple :
+        routes : openrouteservice object
+            Contains the route details.
+        line : folium line object
+            Contains the line object that can be written to the map.
+    '''
     # Convert the stops into id's
     route_data = route_df[route_df.index == route_number]
     stop_coords = cd_locations_df[cd_locations_df.index.isin(list(route_data['path'])[0])][['Long', 'Lat']].to_numpy().tolist()
@@ -96,6 +157,25 @@ def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour
             folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_data['path']), color=route_colour))
 
 def generate_selected_routes(ors_client, selected_routes, locations, route_df_filename="weekday_routes.pkl"):
+    '''
+    Returns a list of folium line objects that correspond to the routes specified.
+
+    inputs:
+    ------
+    ors_client : openrouteservice object
+        The client object from the ORS python package.
+    selected_routes : list[int]
+        The selected route numbers (indexes).
+    locations : pandas dataframe
+        The dataframe of the locations of stores in Auckland.
+    route_df_filename : string
+        The filename of the route dataframe (stored as a pickle).
+
+    outputs:
+    -------
+    route_lines : list[folium object]
+        A python list of all the folium line object routes to be graphed to a map.
+    '''
     routes_df = pd.read_pickle(route_df_filename)
     route_lines = []
     palette = sns.color_palette("hls", len(selected_routes)).as_hex()
@@ -106,6 +186,18 @@ def generate_selected_routes(ors_client, selected_routes, locations, route_df_fi
     return route_lines
 
 def read_keys():
+    '''
+    Reads the secure key set (keys that we don't want on git version control).
+
+    inputs:
+    ------
+    None
+
+    outputs:
+    -------
+    keys : dict
+        A json dictionary of the keys file.
+    '''
     with open("maps/keys.json") as fp:
         return json.loads(fp.read())
 
