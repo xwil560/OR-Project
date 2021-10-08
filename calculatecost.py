@@ -6,7 +6,7 @@ import os
 import pickle as pkl
 from tqdm import trange
 
-def TSP_calculate_old(df_time,  stops, weekend=False):
+def TSP_calculate(df_time,  stops, weekend=False):
     '''
     Takes a list of stops and computes the best order to travel them in
 
@@ -27,25 +27,10 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
     '''
 
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
-    df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
-    if weekends:
-        demands = {
-            "Countdown" : 4
-        }
-    else:
-        demands = {
-            "Countdown" : 8,
-            "Countdown Metro" : 5,
-            "SuperValue" : 5,
-            "FreshChoice" : 5,
-        }       
-    df_time = df_time.set_index("Store")
-
-    locations = pd.read_csv("data/WoolworthsLocations.csv")
+ 
 
     df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
     
-    df_locs = locations[locations['Store'].isin(list(stops))] # subset the dataframe so that only relevant stores are present
 
     time = lambda p: path_time(df,p) # partial function evaluates the time of a path using the subsetted dataframe
 
@@ -59,9 +44,9 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
     path = list(paths[mindex]) # convert the optimal path as a list
 
     return path, total_time
+ 
 
-
-def TSP_calculate(df_time,  stops, weekend=False):
+def TSP_calculate_old(df_time,  stops, weekend=False):
     '''
     Takes a list of stops and computes the best order to travel them in
 
