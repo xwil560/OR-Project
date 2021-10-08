@@ -27,8 +27,8 @@ def TSP_calculate(df_time,  stops, weekend=False):
     '''
 
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
- 
-
+    stops = list(stops)
+    df_time = df_time.set_index("Store")
     df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
     
 
@@ -210,18 +210,18 @@ if __name__ == "__main__":
     # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
     # # df = df.set_index("Store")
 
-    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
+    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    # df = create_LP_values("combinations_weekend.json")
-    # df.to_pickle("data/weekend_routes.pkl")
+    df = create_LP_values("combinations_weekday.json")
+    df.to_pickle("data/weekday_routes.pkl")
     # print(pd.read_pickle("weekday_routes.pkl"))
 
-    demands = {
-        "Countdown" : 8,
-        "Countdown Metro" : 5,
-        "SuperValue" : 5,
-        "FreshChoice" : 5,
-    }      
-    print(route_demand(demands, stops))
+    # demands = {
+    #     "Countdown" : 8,
+    #     "Countdown Metro" : 5,
+    #     "SuperValue" : 5,
+    #     "FreshChoice" : 5,
+    # }      
+    # print(route_demand(demands, stops))
