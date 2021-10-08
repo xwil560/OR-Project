@@ -203,6 +203,23 @@ def route_demand(dict, path):
     total_demand = sum([df_locs.loc[store].Demand for store in path])
     return total_demand
 
+def route_cost(dict, df):
+    demands = lambda path: route_demand(dict, path)
+    df["demand"] = df.path.map(demands)
+    df = df.loc[df.demand<=26]
+    vCost = np.vectorize(Cost)
+
+    df["cost"] = vCost(df.total_time, df.demand)
+    return df 
+
+def Cost(travel_t, palletes):
+    total_time = travel_t + 7.5*palletes
+    if total_time <= 240: # evaluate how expensive running this path is
+        cost = 3.75*total_time
+    else:
+        cost = 3.75*240 + (275/60)*(total_time-240)
+    return cost
+
 
 if __name__ == "__main__":
     # df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
@@ -214,14 +231,17 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    df = create_LP_values("combinations_weekday.json")
-    df.to_pickle("data/weekday_routes.pkl")
-    # print(pd.read_pickle("weekday_routes.pkl"))
+    # df = create_LP_values("combinations_weekend.json")
+    # df.to_pickle("data/weekend_routes.pkl")
+    df = pd.read_pickle("data/weekday_routes.pkl")
+    
 
-    # demands = {
-    #     "Countdown" : 8,
-    #     "Countdown Metro" : 5,
-    #     "SuperValue" : 5,
-    #     "FreshChoice" : 5,
-    # }      
+    demands = {
+        "Countdown" : 12,
+        "Countdown Metro" : 7,
+        "SuperValue" : 7,
+        "FreshChoice" : 7,
+    }     
+
+    print(route_cost(demands, df))
     # print(route_demand(demands, stops))

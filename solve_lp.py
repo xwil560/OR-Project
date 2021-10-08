@@ -28,7 +28,7 @@ def routes_solver(input_data_filename):
 
     # Organize the data into costs and Aki matrix
     cost = data["cost"]
-    A = data.drop(["cost","path"],axis=1)
+    A = data.drop(["cost","path", "total_time", "demand"],axis=1)
     A = A.loc[:,~A.eq(0).all()]
     routes = np.arange(len(cost)) # Array to keep truck of the amount of routes
 
