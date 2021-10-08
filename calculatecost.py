@@ -237,7 +237,7 @@ if __name__ == "__main__":
     
 
     demands = {
-        "Countdown" : 12,
+        "Countdown" : 4,
         "Countdown Metro" : 7,
         "SuperValue" : 7,
         "FreshChoice" : 7,
