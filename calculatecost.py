@@ -237,12 +237,12 @@ if __name__ == "__main__":
     
 
     demands = {
-        "Countdown" : 12,
+        "Countdown" : 4,
         "Countdown Metro" : 7,
         "SuperValue" : 7,
         "FreshChoice" : 7,
     }     
 
     dflow = route_cost(demands, df)
-    dflow.to_pickle("differentDemands/weekday_routesHIGH.pkl")
+    dflow.to_pickle("differentDemands/weekend_routesLOW.pkl")
     # print(route_demand(demands, stops))
