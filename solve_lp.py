@@ -24,7 +24,7 @@ def routes_solver(input_data_filename):
     '''
 
     # Read in the pickle
-    data =pd.read_pickle("data" + os.sep + input_data_filename)
+    data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
 
     # Organize the data into costs and Aki matrix
     cost = data["cost"]
