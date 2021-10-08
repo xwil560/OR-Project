@@ -6,6 +6,61 @@ import os
 import pickle as pkl
 from tqdm import trange
 
+def TSP_calculate_old(df_time,  stops, weekend=False):
+    '''
+    Takes a list of stops and computes the best order to travel them in
+
+
+    inputs:
+    ------
+    df_time : dataframe
+        dataframe containing the time between each pair of locations
+    stops : list
+        list containing the stops that the route must go through
+
+    outputs:
+    -------
+    path : list
+        list containing the stops in order
+    cost : float
+        cost (in nz$) of taking the trip
+    '''
+
+    paths = list(iter.permutations(stops)) # create a list of all possible permutations
+    df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    if weekends:
+        demands = {
+            "Countdown" : 4
+        }
+    else:
+        demands = {
+            "Countdown" : 8,
+            "Countdown Metro" : 5,
+            "SuperValue" : 5,
+            "FreshChoice" : 5,
+        }       
+    df_time = df_time.set_index("Store")
+
+    locations = pd.read_csv("data/WoolworthsLocations.csv")
+
+    df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
+    
+    df_locs = locations[locations['Store'].isin(list(stops))] # subset the dataframe so that only relevant stores are present
+
+    time = lambda p: path_time(df,p) # partial function evaluates the time of a path using the subsetted dataframe
+
+    times = list(map(time, paths)) # generate list of times by mapping the time function to each possible path
+
+    mindex = np.argmin(times) # find the index with the shortest time
+
+    total_time = (times[mindex])/60
+
+    
+    path = list(paths[mindex]) # convert the optimal path as a list
+
+    return path, total_time
+
+
 def TSP_calculate(df_time,  stops, weekend=False):
     '''
     Takes a list of stops and computes the best order to travel them in
@@ -132,7 +187,7 @@ def create_LP_values(filename, weekend=False):
 
     dict = {
         "path" : routes["combinations"],
-        "cost" : [0]*leng
+        "total_time" : [0]*leng
         } # initialise dictionary to create
 
     for store in df_t.Store: # add a column for each location
@@ -149,13 +204,19 @@ def create_LP_values(filename, weekend=False):
             path, cost = TSP_calculate(df_t, route.path, weekend=False) # find the shortest path and its cost
 
         df["path"].iloc[i] = path # add the optimal path and cost to the df
-        df["cost"].iloc[i] = cost
+        df["total_time"].iloc[i] = cost
         for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
             df[loc].iloc[i] = 1
 
 
 
     return df
+
+def route_demand(dict, path):
+    df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv",index_col="Store")
+    df_locs["Demand"] = df_locs["Type"].map(dict)
+    total_demand = sum([df_locs.loc[store].Demand for store in path])
+    return total_demand
 
 
 if __name__ == "__main__":
@@ -164,10 +225,18 @@ if __name__ == "__main__":
     # df.rename({'Unnamed: 0':"Store"}, axis=1, inplace=True)
     # # df = df.set_index("Store")
 
-    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive']#,'Countdown Birkenhead','Countdown Blockhouse Bay']
+    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    df = create_LP_values("combinations_weekend.json")
-    df.to_pickle("data/weekend_routes.pkl")
+    # df = create_LP_values("combinations_weekend.json")
+    # df.to_pickle("data/weekend_routes.pkl")
     # print(pd.read_pickle("weekday_routes.pkl"))
+
+    demands = {
+        "Countdown" : 8,
+        "Countdown Metro" : 5,
+        "SuperValue" : 5,
+        "FreshChoice" : 5,
+    }      
+    print(route_demand(demands, stops))
