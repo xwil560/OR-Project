@@ -243,5 +243,6 @@ if __name__ == "__main__":
         "FreshChoice" : 7,
     }     
 
-    print(route_cost(demands, df))
+    dflow = route_cost(demands, df)
+    dflow.to_pickle("differentDemands/weekday_routesHIGH.pkl")
     # print(route_demand(demands, stops))
