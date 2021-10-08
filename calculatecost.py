@@ -27,12 +27,24 @@ def TSP_calculate(df_time,  stops, weekend=False):
     '''
 
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
-
+    df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    if weekends:
+        demands = {
+            "Countdown" : 4
+        }
+    else:
+        demands = {
+            "Countdown" : 8,
+            "Countdown Metro" : 5,
+            "SuperValue" : 5,
+            "FreshChoice" : 5,
+        }       
     df_time = df_time.set_index("Store")
 
     locations = pd.read_csv("data/WoolworthsLocations.csv")
 
     df = df_time.loc[['Distribution Centre Auckland']+stops, ['Distribution Centre Auckland']+stops] # subset the dataframe so that only relevant stores are present
+    
     df_locs = locations[locations['Store'].isin(list(stops))] # subset the dataframe so that only relevant stores are present
 
     if weekend:
@@ -48,14 +60,13 @@ def TSP_calculate(df_time,  stops, weekend=False):
         }
 
     total_stops = sum([demand_dict[location] for location in df_locs['Type']])
-
     time = lambda p: path_time(df,p) # partial function evaluates the time of a path using the subsetted dataframe
 
     times = list(map(time, paths)) # generate list of times by mapping the time function to each possible path
 
     mindex = np.argmin(times) # find the index with the shortest time
 
-    total_time = (times[mindex])/60 + 7.5*len(stops)
+    total_time = (times[mindex])/60  +7.5*totalpalettes
 
     if total_time <= 240: # evaluate how expensive running this path is
         cost = 3.75*((times[mindex])/60 + 7.5*total_stops)
@@ -96,7 +107,7 @@ def import_json(filename):
     with open(filename) as fp:
         return json.loads(fp.read())
 
-def create_LP_values(filename):
+def create_LP_values(filename, weekend=False):
     '''
     creates a dataframe to be used in the linear program formulation
 
@@ -136,6 +147,7 @@ def create_LP_values(filename):
             path, cost = TSP_calculate(df_t, route.path, weekend=True) # find the shortest path and its cost
         else:
             path, cost = TSP_calculate(df_t, route.path, weekend=False) # find the shortest path and its cost
+
         df["path"].iloc[i] = path # add the optimal path and cost to the df
         df["cost"].iloc[i] = cost
         for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
@@ -144,7 +156,6 @@ def create_LP_values(filename):
 
 
     return df
-
 
 
 if __name__ == "__main__":
