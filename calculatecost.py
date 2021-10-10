@@ -238,9 +238,9 @@ if __name__ == "__main__":
 
     demands = {
         "Countdown" : 4,
-        "Countdown Metro" : 7,
-        "SuperValue" : 7,
-        "FreshChoice" : 7,
+        "Countdown Metro" : 27,
+        "SuperValue" : 27,
+        "FreshChoice" : 27,
     }     
 
     dflow = route_cost(demands, df)
