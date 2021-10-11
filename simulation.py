@@ -93,10 +93,10 @@ if __name__ == "__main__":
     routs = [['Countdown Manukau', 'Countdown Papatoetoe'], ['Countdown Roselands', 'Countdown Takanini'], ['Countdown Greenlane', 'Countdown Meadowbank'], ['Countdown Mt Wellington', 'Countdown Sylvia Park'], ['Countdown St Johns', 'Countdown Pakuranga'], ['Countdown Mangere East'], ['SuperValue Flatbush', 'Countdown Howick', 'FreshChoice Half Moon Bay'], ['Countdown Highland Park', 'Countdown Aviemore Drive'], ['Countdown Meadowlands', 'Countdown Botany Downs'],['Countdown Auckland City', 'Countdown Metro Albert Street', 'Countdown Metro Halsey Street'], ['Countdown Grey Lynn', 'Countdown Ponsonby'], ['Countdown Grey Lynn Central', 'Countdown Pt Chevalier'], ['Countdown Mt Eden', 'Countdown St Lukes'], ['Countdown Mt Roskill', 'Countdown Three Kings'], ['SuperValue Papakura', 'Countdown Papakura', 'FreshChoice Otahuhu'], ['Countdown Newmarket', 'Countdown Victoria Street West'], ['Countdown Blockhouse Bay', 'Countdown Lynfield'], ['Countdown Lynmall', 'SuperValue Avondale'], ['Countdown Birkenhead', 'Countdown Glenfield'], ['Countdown Mairangi Bay', 'Countdown Browns Bay'], ['Countdown Takapuna', 'Countdown Hauraki Corner'], ['Countdown Sunnynook', 'Countdown Milford'], ['Countdown Northcote'], ['Countdown Henderson', 'SuperValue Palomino', 'FreshChoice Ranui'], ['Countdown Kelston', 'FreshChoice Glen Eden', 'SuperValue Titirangi'], ['Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Mangere Mall', 'Countdown Airport'], ['Countdown Lincoln Road', 'Countdown Westgate'], ['Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manurewa'], ['FreshChoice Mangere Bridge', 'Countdown Onehunga']]
     time_1 = routs[:len(routs)//2]
     time_2 = routs[:(len(routs)-len(routs)//2)]
-    costs = simulation(time_1,time_2, weekend=False,Nruns = 2, filename="weekday_routesHIGH.pkl")
+    costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename="weekday_routesHIGH.pkl")
     with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","wb") as fp:
         pkl.dump(costs,fp)
 
-    with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
-        print(pkl.load(fp))
+    # with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
+    #     print(pkl.load(fp))
     
