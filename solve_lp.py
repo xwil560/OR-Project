@@ -174,15 +174,17 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     print("Total Cost from Routes = ", value(prob.objective))
 
     # Return a list of the stop numbers
-    list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
-    list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
+    
+    list_of_routes_w = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if (v.varValue == 1 and "Woolworths" in v.name.split("_")[0])]
+    list_of_routes_df = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if (v.varValue == 1 and "DailyFreight" in v.name.split("_")[0])]
+    
 
-    return list_of_routes, list_of_trucks, value(prob.objective)
+    return list_of_routes_w, list_of_routes_df
 
 
 if __name__ == "__main__":
     #routes_solver("weekday_routes.pkl")
-    routes_solver("weekday_routesLOW.pkl")
-    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
-    # print(route_modifier("weekday_routesLOW.pkl", stops, 20, 19))
+    # routes_solver("weekday_routesLOW.pkl")
+    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
+    print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
 
