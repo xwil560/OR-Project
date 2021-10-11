@@ -158,7 +158,7 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     import time
     start = time.time()
     #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
-    prob.solve()
+    PULP_CBC_CMD(msg=0).solve(prob)
     end = time.time()
     print(end-start)
 
@@ -171,7 +171,7 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
             print(data.path.iloc[int(v.name.split("_")[-1])], "=", v.varValue)
 
     # The optimised objective function valof Ingredients pue is printed to the screen
-    print("Total Cost from Routes = ", value(prob.objective))
+    # print("Total Cost from Routes = ", value(prob.objective))
 
     # Return a list of the stop numbers
     

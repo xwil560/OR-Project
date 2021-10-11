@@ -6,6 +6,8 @@ from solve_lp import route_modifier
 from Lab6 import generateTaskTime
 from typing import List
 import tqdm as tq
+import matplotlib.pyplot as plt
+import pickle as pkl 
 
 def change_demand(demands, time_1, time_2):
     unsatisfied_nodes = []
@@ -31,7 +33,7 @@ def calc_demand(demand, route):
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
     random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t/2, t, 2*t)
     dfs = [df.iloc[0:0,:].copy() for i in range(Nruns)]
-    for i in range(Nruns):
+    for i in tq.trange(Nruns):
         dfs[i] = df.applymap(lambda t: random_time(t))
 
     return dfs
@@ -46,12 +48,12 @@ def simulation(time_1,time_2, weekend=False,Nruns = 100, filename="weekday_route
     time_dfs = random_times(duration_df, Nruns)
     dem_dicts = bootstrap_demands(locations_df, demand_df, weekend, Nruns)
 
-    for i in range(Nruns):
+    for i in tq.trange(Nruns):
         demands = dem_dicts[i]
         new_routes1, new_routes2, unsatisfied_nodes, N1, N2 = change_demand(demands, time_1, time_2)
-        new_paths_w, new_paths_df = route_modifier("weekday_routesLOW.pkl", unsatisfied_nodes, N1, N2)
+        new_paths_w, new_paths_df = route_modifier(filename, unsatisfied_nodes, N1, N2)
         for route in new_routes1+new_routes2+new_paths_w:
-            costs[i] += Cost(path_time(time_dfs[i], route), calc_demand(demands, route))
+            costs[i] += Cost(path_time(time_dfs[i], route)/60, calc_demand(demands, route))
         costs[i] += 2000*len(new_paths_df)
 
     return costs
@@ -79,7 +81,7 @@ def bootstrap_demands(locations_df, demand_df, weekend=False, Nruns=100):
     
     
     # Create a np array with the contents
-    return [{str(ldf[0]): int(bootstrap_val(demand_dict[ldf[1]])) for ldf in locations_df.itertuples()} for i in range(Nruns)]
+    return [{str(ldf[0]): int(bootstrap_val(demand_dict[ldf[1]])) for ldf in locations_df.itertuples()} for i in tq.trange(Nruns)]
 
 if __name__ == "__main__":
     # locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
@@ -88,6 +90,13 @@ if __name__ == "__main__":
     # print(demands)
     # duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     # print(random_times(duration_df, 10))
-    time_1 = [['Countdown Manukau', 'Countdown Papatoetoe'], ['Countdown Roselands', 'Countdown Takanini'], ['Countdown Greenlane', 'Countdown Meadowbank'], ['Countdown Mt Wellington', 'Countdown Sylvia Park'], ['Countdown St Johns', 'Countdown Pakuranga'], ['Countdown Mangere East'], ['SuperValue Flatbush', 'Countdown Howick', 'FreshChoice Half Moon Bay'], ['Countdown Highland Park', 'Countdown Aviemore Drive'], ['Countdown Meadowlands', 'Countdown Botany Downs']]
-    time_2 = [['Countdown Auckland City', 'Countdown Metro Albert Street', 'Countdown Metro Halsey Street'], ['Countdown Grey Lynn', 'Countdown Ponsonby'], ['Countdown Grey Lynn Central', 'Countdown Pt Chevalier'], ['Countdown Mt Eden', 'Countdown St Lukes'], ['Countdown Mt Roskill', 'Countdown Three Kings'], ['SuperValue Papakura', 'Countdown Papakura', 'FreshChoice Otahuhu'], ['Countdown Newmarket', 'Countdown Victoria Street West'], ['Countdown Blockhouse Bay', 'Countdown Lynfield'], ['Countdown Lynmall', 'SuperValue Avondale'], ['Countdown Birkenhead', 'Countdown Glenfield'], ['Countdown Mairangi Bay', 'Countdown Browns Bay'], ['Countdown Takapuna', 'Countdown Hauraki Corner'], ['Countdown Sunnynook', 'Countdown Milford'], ['Countdown Northcote'], ['Countdown Henderson', 'SuperValue Palomino', 'FreshChoice Ranui'], ['Countdown Kelston', 'FreshChoice Glen Eden', 'SuperValue Titirangi'], ['Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Mangere Mall', 'Countdown Airport'], ['Countdown Lincoln Road', 'Countdown Westgate'], ['Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manurewa'], ['FreshChoice Mangere Bridge', 'Countdown Onehunga']]
-    print(simulation(time_1,time_2, weekend=False,Nruns = 2, filename="weekday_routesHIGH.pkl"))
+    routs = [['Countdown Manukau', 'Countdown Papatoetoe'], ['Countdown Roselands', 'Countdown Takanini'], ['Countdown Greenlane', 'Countdown Meadowbank'], ['Countdown Mt Wellington', 'Countdown Sylvia Park'], ['Countdown St Johns', 'Countdown Pakuranga'], ['Countdown Mangere East'], ['SuperValue Flatbush', 'Countdown Howick', 'FreshChoice Half Moon Bay'], ['Countdown Highland Park', 'Countdown Aviemore Drive'], ['Countdown Meadowlands', 'Countdown Botany Downs'],['Countdown Auckland City', 'Countdown Metro Albert Street', 'Countdown Metro Halsey Street'], ['Countdown Grey Lynn', 'Countdown Ponsonby'], ['Countdown Grey Lynn Central', 'Countdown Pt Chevalier'], ['Countdown Mt Eden', 'Countdown St Lukes'], ['Countdown Mt Roskill', 'Countdown Three Kings'], ['SuperValue Papakura', 'Countdown Papakura', 'FreshChoice Otahuhu'], ['Countdown Newmarket', 'Countdown Victoria Street West'], ['Countdown Blockhouse Bay', 'Countdown Lynfield'], ['Countdown Lynmall', 'SuperValue Avondale'], ['Countdown Birkenhead', 'Countdown Glenfield'], ['Countdown Mairangi Bay', 'Countdown Browns Bay'], ['Countdown Takapuna', 'Countdown Hauraki Corner'], ['Countdown Sunnynook', 'Countdown Milford'], ['Countdown Northcote'], ['Countdown Henderson', 'SuperValue Palomino', 'FreshChoice Ranui'], ['Countdown Kelston', 'FreshChoice Glen Eden', 'SuperValue Titirangi'], ['Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Mangere Mall', 'Countdown Airport'], ['Countdown Lincoln Road', 'Countdown Westgate'], ['Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manurewa'], ['FreshChoice Mangere Bridge', 'Countdown Onehunga']]
+    time_1 = routs[:len(routs)//2]
+    time_2 = routs[:(len(routs)-len(routs)//2)]
+    costs = simulation(time_1,time_2, weekend=False,Nruns = 2, filename="weekday_routesHIGH.pkl")
+    with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","wb") as fp:
+        pkl.dump(costs,fp)
+
+    with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
+        print(pkl.load(fp))
+    
