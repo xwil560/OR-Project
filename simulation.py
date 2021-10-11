@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
 from solve_lp import route_modifier
-=======
 import numpy as np
 import pandas as pd
 import os
-
->>>>>>> Stashed changes
 
 def change_demand(demands, time_1, time_2):
     unsatisfied_nodes = []
@@ -29,13 +25,15 @@ def calc_demand(demand, route):
     return sum([demand[r] for r in route])
 
 
-def simulation(Nruns = 100, time_1,time_2):
+def simulation(Nruns, time_1,time_2):
     
     for i in range(Nruns):
-        new_routes1, new_routes2, unsatisfied_nodes, N1, N2 = 
+        new_routes1, new_routes2, unsatisfied_nodes, N1, N2 = 0
 
-def bootstrap_demands(locations_df, demand_df, weekend=True):
+def bootstrap_demands(locations_df, demand_df, weekend=False):
     locations_df.set_index('Store', inplace=True)
+    locations_df = locations_df[locations_df['Type'] != "Distribution Centre"]
+
     # Sample randomly from the actual demands
     demand_data = demand_df.melt(id_vars = 'Store', var_name = 'Date', value_name = 'Demand')
     demand_data['Date'] = pd.to_datetime(demand_data['Date'])
@@ -53,10 +51,10 @@ def bootstrap_demands(locations_df, demand_df, weekend=True):
     }
     
     # Create a np array with the contents
-    return pd.DataFrame(locations_df['Type'].map(demand_dict), locations_df.index).rename({'Type':'Demand'}, axis=1)
+    return {str(ldf[0]): int(demand_dict[ldf[1]]) for ldf in locations_df.itertuples()}
 
 if __name__ == "__main__":
     locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
     demands = bootstrap_demands(locations_df, demand_df)
-    print(demands['Demand'])
+    print(demands)
