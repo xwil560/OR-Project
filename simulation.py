@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 from solve_lp import route_modifier
+=======
+import numpy as np
+import pandas as pd
+import os
+
+>>>>>>> Stashed changes
 
 def change_demand(demands, time_1, time_2):
     unsatisfied_nodes = []
@@ -26,3 +33,30 @@ def simulation(Nruns = 100, time_1,time_2):
     
     for i in range(Nruns):
         new_routes1, new_routes2, unsatisfied_nodes, N1, N2 = 
+
+def bootstrap_demands(locations_df, demand_df, weekend=True):
+    locations_df.set_index('Store', inplace=True)
+    # Sample randomly from the actual demands
+    demand_data = demand_df.melt(id_vars = 'Store', var_name = 'Date', value_name = 'Demand')
+    demand_data['Date'] = pd.to_datetime(demand_data['Date'])
+    demand_data['Weekday'] = demand_data.Date.dt.dayofweek 
+    demand_data['Size'] = demand_data['Store'].map(lambda store: "Big" if locations_df.loc[store]['Type'] in ["Countdown"] else "Small")
+
+    bootstrap_val = lambda size: demand_data[(demand_data['Size'] == size) & (demand_data['Weekday'].isin([5,6]) if weekend else demand_data['Weekday'].isin(list(range(0,5))))].sample(n=1)['Demand']
+
+    # Apply random samples
+    demand_dict = {
+        "Countdown" : bootstrap_val("Big"),
+        "Countdown Metro" : bootstrap_val("Small"),
+        "SuperValue" : bootstrap_val("Small"), 
+        "FreshChoice" : bootstrap_val("Small"),
+    }
+    
+    # Create a np array with the contents
+    return pd.DataFrame(locations_df['Type'].map(demand_dict), locations_df.index).rename({'Type':'Demand'}, axis=1)
+
+if __name__ == "__main__":
+    locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
+    demands = bootstrap_demands(locations_df, demand_df)
+    print(demands['Demand'])
