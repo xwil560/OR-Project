@@ -1,4 +1,3 @@
-from solve_lp import route_modifier
 import numpy as np
 import pandas as pd
 import os
@@ -25,7 +24,8 @@ def calc_demand(demand, route):
     return sum([demand[r] for r in route])
 
 
-def simulation(Nruns, time_1,time_2):
+
+def simulation(Nruns = 100, time_1,time_2):
     
     for i in range(Nruns):
         new_routes1, new_routes2, unsatisfied_nodes, N1, N2 = 0
