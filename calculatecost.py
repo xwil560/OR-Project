@@ -231,8 +231,11 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    # df = create_LP_values("combinations_weekend.json")
-    # df.to_pickle("data/weekend_routes.pkl")
+    import time
+    o=time.time()
+    df = create_LP_values("combinations_weekday.json")
+    df.to_pickle("data/weekday_routes.pkl")
+    print(time.time()-o)
     df = pd.read_pickle("data/weekend_routes.pkl")
     
 
@@ -243,6 +246,9 @@ if __name__ == "__main__":
         "FreshChoice" : 27,
     }     
 
+    import time
+    o=time.time()
     dflow = route_cost(demands, df)
+    print(time.time()-o)
     dflow.to_pickle("differentDemands/weekend_routesLOW.pkl")
     # print(route_demand(demands, stops))
