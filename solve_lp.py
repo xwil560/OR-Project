@@ -45,7 +45,7 @@ def routes_solver(input_data_filename):
 
     DF1 = LpVariable.dicts("DailyFreight1",routes,0,1,LpBinary)
     DF2 = LpVariable.dicts("DailyFreight2",routes,0,1,LpBinary)
-    
+
     # Define the cost minimization problem
     prob = LpProblem("Routes Problem",LpMinimize)
 
@@ -177,7 +177,7 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return list_of_routes, list_of_trucks, prob.objective
+    return list_of_routes, list_of_trucks, value(prob.objective)
 
 
 if __name__ == "__main__":
