@@ -61,7 +61,7 @@ def routes_solver(input_data_filename):
     prob += lpSum([R2[i] for i in routes]) <= 30, 'Max trucks on Route 2'
 
     # Solving routines
-    # prob.writeLP('Routes.lp')
+    prob.writeLP('Routes.lp')
 
     import time
     start = time.time()
@@ -83,8 +83,9 @@ def routes_solver(input_data_filename):
 
     # Return a list of the stop numbers
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
+    list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return list_of_routes
+    return list_of_routes, list_of_trucks, prob.objective
 
 def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     '''
@@ -173,9 +174,10 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     print("Total Cost from Routes = ", value(prob.objective))
 
     # Return a list of the stop numbers
-    list_of_routes = [(data.path.iloc[int(v.name.split("_")[-1])], v.name.split("_")[0]) for v in prob.variables() if v.varValue == 1]
+    list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
+    list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return list_of_routes
+    return list_of_routes, list_of_trucks, prob.objective
 
 
 if __name__ == "__main__":
