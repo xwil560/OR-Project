@@ -1,3 +1,4 @@
+from solve_lp import route_modifier
 
 def change_demand(demands, time_1, time_2):
     unsatisfied_nodes1 = []
@@ -17,3 +18,6 @@ def change_demand(demands, time_1, time_2):
 
 def calc_demand(demand, route):
     return sum([demand[r] for r in route])
+
+
+def simulation(Nruns = 100)

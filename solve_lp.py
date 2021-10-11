@@ -40,12 +40,12 @@ def routes_solver(input_data_filename):
     routes = np.arange(len(cost)) # Array to keep truck of the amount of routes
 
     # Generate binary variables for Amount of Trucks
-    R1=LpVariable.dicts("Shift 1",routes,0,1,LpBinary)
-    R2=LpVariable.dicts("Shift 2",routes,0,1,LpBinary)
+    R1=LpVariable.dicts("Woolworths1",routes,0,1,LpBinary)
+    R2=LpVariable.dicts("Woolworths2",routes,0,1,LpBinary)
 
-    DF1 = LpVariable.dicts("Truck Routes Travelled 1",routes,0,1,LpBinary)
-    DF2 = LpVariable.dicts("Truck Routes Travelled 2",routes,0,1,LpBinary)
-
+    DF1 = LpVariable.dicts("DailyFreight1",routes,0,1,LpBinary)
+    DF2 = LpVariable.dicts("DailyFreight2",routes,0,1,LpBinary)
+    
     # Define the cost minimization problem
     prob = LpProblem("Routes Problem",LpMinimize)
 
@@ -85,7 +85,7 @@ def routes_solver(input_data_filename):
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return list_of_routes, list_of_trucks, prob.objective
+    return list_of_routes, list_of_trucks, value(prob.objective)
 
 def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     '''
