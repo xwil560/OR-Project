@@ -136,7 +136,7 @@ def path_time(df, path):
     '''
 
     path = ["Distribution Centre Auckland"] + list(path) + ["Distribution Centre Auckland"] # make sure the path starts and ends in Favona
-
+    df = df.set_index("Unnamed: 0")
     time = lambda l1,l2: df.loc[l1][l2] # time takes two locations and outputs the time taken to go between them
 
     t = sum([time(*p) for p in zip(path[:-1],path[1:])]) # calculate the time taken to traverse the path by summing the distances between each pair
