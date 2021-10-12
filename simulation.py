@@ -110,5 +110,10 @@ if __name__ == "__main__":
 
     # with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
     #     print(pkl.load(fp))
+<<<<<<< Updated upstream
 >>>>>>> 63b5112d91bf2e90b224fd95f6f1e6918e07dfff
+=======
+    
+
+>>>>>>> Stashed changes
     
