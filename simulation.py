@@ -44,7 +44,10 @@ def simulation(time_1,time_2, weekend=False,Nruns = 100, filename="weekday_route
     locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
     duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
-    
+
+    #duration_df.drop("Distribution Centre Auckland", axis=0, inplace=True)
+    duration_df.drop("Distribution Centre Auckland", axis=1, inplace=True)
+
     time_dfs = random_times(duration_df, Nruns)
     dem_dicts = bootstrap_demands(locations_df, demand_df, weekend, Nruns)
 
