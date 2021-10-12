@@ -23,12 +23,12 @@ if __name__ == "__main__":
 
         # Generate the partitions
         if week_stage == "weekday":
-            partitions.generate_paritions(partition_data, weekend=False) 
+            partitions.generate_partitions(partition_data, weekend=False) 
 
         else:
             weekend_data = partition_data[partition_data['Type'] == 'Countdown']
 
-            partitions.generate_paritions(partition_data, weekend=True) 
+            partitions.generate_partitions(partition_data, weekend=True) 
         
         # Create routes and apply cost function
         df = costs.create_LP_values(f"combinations_{week_stage}.json")

@@ -3,20 +3,20 @@ import itertools
 import pandas as pd
 from tqdm import tqdm
 
-def generate_paritions(partition_data, weekend=False):
+def generate_partitions(partition_data, weekend=False):
     '''
     Generates all possible partitions of a regioned dataset and saves as a file.
 
     inputs:
     ------
-    paritions_data : pandas dataframe
+    partitions_data : pandas dataframe
         A dataframe with each stop and a binary column for each region that the stops belong too.
     weekend : boolean
         Boolean set depending on what the input dataset time period is.
 
     outputs:
     -------
-    paritions : file
+    partitions : file
         A json dictionary of all possible partitions written to disk.
     '''
     if weekend:
@@ -69,8 +69,8 @@ def generate_paritions(partition_data, weekend=False):
 if __name__ == "__main__":
     partition_data = pd.read_csv('data/WoolworthsRegions.csv')
 
-    generate_paritions(partition_data, weekend=False) 
+    generate_partitions(partition_data, weekend=False) 
 
     weekend_data = partition_data[partition_data['Type'] == 'Countdown']
     
-    generate_paritions(weekend_data, weekend=True)
+    generate_partitions(weekend_data, weekend=True)
