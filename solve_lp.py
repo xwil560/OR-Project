@@ -5,7 +5,7 @@ import pandas as pd
 from pulp import *
 import pickle as pkl
 
-def routes_solver(input_data_filename):
+def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[str], float]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -87,7 +87,7 @@ def routes_solver(input_data_filename):
 
     return list_of_routes, list_of_trucks, value(prob.objective)
 
-def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
+def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: int, N2: int) -> tuple[list[pd.DataFrame], list[pd.DataFrame]]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -106,7 +106,7 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     '''
 
     # Read in the pickle
-    data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
+    data = pd.read_pickle("differentDemands" + os.sep + input_data_filename)
 
     
     df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
@@ -153,7 +153,7 @@ def route_modifier(input_data_filename, unsatisfied_nodes, N1, N2):
     prob += lpSum([R2[i] for i in routes]) <= N2, 'Max trucks on Route 2'
    
     # Solving routines
-    prob.writeLP('Routes.lp')
+    # prob.writeLP('Routes.lp')
     
     import time
     start = time.time()

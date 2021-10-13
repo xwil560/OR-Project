@@ -6,7 +6,7 @@ import os
 import pickle as pkl
 from tqdm import trange
 
-def TSP_calculate(df_time,  stops, weekend=False):
+def TSP_calculate(df_time: pd.DataFrame,  stops: list[str]) -> tuple[list[str], float]:
     '''
     Takes a list of stops and computes the best order to travel them in
 
@@ -46,7 +46,7 @@ def TSP_calculate(df_time,  stops, weekend=False):
     return path, total_time
  
 
-def TSP_calculate_old(df_time,  stops, weekend=False):
+def TSP_calculate_old(df_time: pd.DataFrame,  stops: list[str], weekend: bool = False) -> tuple[list[str], float]:
     '''
     Takes a list of stops and computes the best order to travel them in
 
@@ -57,6 +57,8 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
         dataframe containing the time between each pair of locations
     stops : list
         list containing the stops that the route must go through
+    weekend : bool
+        Whether the TSP calculation should be for the weekend or otherwise (demandwise).
 
     outputs:
     -------
@@ -68,7 +70,7 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
 
     paths = list(iter.permutations(stops)) # create a list of all possible permutations
     df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
-    if weekends:
+    if weekend:
         demands = {
             "Countdown" : 4
         }
@@ -87,26 +89,14 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
     
     df_locs = locations[locations['Store'].isin(list(stops))] # subset the dataframe so that only relevant stores are present
 
-    if weekend:
-        demand_dict = {
-            'Countdown': 4
-        }
-    else:
-        demand_dict = {
-            'Countdown': 8,
-            'FreshChoice': 5,
-            'SuperValue': 5,
-            'Countdown Metro':5
-        }
-
-    total_stops = sum([demand_dict[location] for location in df_locs['Type']])
+    total_stops = sum([demands[location] for location in df_locs['Type']])
     time = lambda p: path_time(df,p) # partial function evaluates the time of a path using the subsetted dataframe
 
     times = list(map(time, paths)) # generate list of times by mapping the time function to each possible path
 
     mindex = np.argmin(times) # find the index with the shortest time
 
-    total_time = (times[mindex])/60  +7.5*totalpalettes
+    total_time = (times[mindex])/60  +7.5*total_stops
 
     if total_time <= 240: # evaluate how expensive running this path is
         cost = 3.75*((times[mindex])/60 + 7.5*total_stops)
@@ -117,7 +107,7 @@ def TSP_calculate_old(df_time,  stops, weekend=False):
 
     return path, cost
 
-def path_time(df, path):
+def path_time(df: pd.DataFrame, path: list) -> float:
     '''
     calculates the time taken to traverse a path in a certain order
 
@@ -143,11 +133,11 @@ def path_time(df, path):
 
     return t
 
-def import_json(filename):
+def import_json(filename: str) -> dict[str, str]:
     with open(filename) as fp:
         return json.loads(fp.read())
 
-def create_LP_values(filename, weekend=False):
+def create_LP_values(filename: str) -> pd.DataFrame:
     '''
     creates a dataframe to be used in the linear program formulation
 
@@ -197,13 +187,13 @@ def create_LP_values(filename, weekend=False):
 
     return df
 
-def route_demand(dict, path):
+def route_demand(dict: dict[str, int], path: list[str]) -> int:
     df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv",index_col="Store")
     df_locs["Demand"] = df_locs["Type"].map(dict)
     total_demand = sum([df_locs.loc[store].Demand for store in path])
     return total_demand
 
-def route_cost(dict, df):
+def route_cost(dict: dict[str, int], df: pd.DataFrame) -> pd.DataFrame:
     demands = lambda path: route_demand(dict, path)
     df["demand"] = df.path.map(demands)
     df = df.loc[df.demand<=26]
@@ -212,7 +202,7 @@ def route_cost(dict, df):
     df["cost"] = vCost(df.total_time, df.demand)
     return df 
 
-def Cost(travel_t, palletes):
+def Cost(travel_t: float, palletes: int) -> float:
     total_time = travel_t + 7.5*palletes
     if total_time <= 240: # evaluate how expensive running this path is
         cost = 3.75*total_time

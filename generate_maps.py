@@ -7,7 +7,7 @@ import os
 import seaborn as sns
 import solve_lp as slp
 
-def create_weekday_map():
+def create_weekday_map() -> folium.Map:
     '''
     Creates a map object with our preconfigured map type with the weekday store locations. 
     
@@ -49,7 +49,7 @@ def create_weekday_map():
     return m
 
 
-def create_weekend_map():
+def create_weekend_map() -> folium.Map:
     '''
     Creates a map object with our preconfigured map type with the weekend store locations. 
     
@@ -101,7 +101,7 @@ def create_weekend_map():
 #    return (routes, 
 #            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = "", color="Red"))
 
-def get_coords_from_locations(locations_data):
+def get_coords_from_locations(locations_data: pd.DataFrame) -> list[list[float]]:
     '''
     Generates a subset dataset of coordinates which can be indexed using the store numbers.
 
@@ -119,7 +119,7 @@ def get_coords_from_locations(locations_data):
     coords = coords.to_numpy().tolist()
     return coords
 
-def draw_route(ors_client, route_path, cd_locations_df, route_colour="White"):
+def draw_route(ors_client: ors.Client, route_path: int, cd_locations_df: pd.DataFrame, route_colour: str = "White") -> tuple[ors.Client, folium.PolyLine]:
     '''
     Returns a folium line object that corresponds to the route specified.
 
@@ -129,8 +129,6 @@ def draw_route(ors_client, route_path, cd_locations_df, route_colour="White"):
         The client object from the ORS python package.
     route_number : int
         The route number (index).
-    route_df : pandas dataframe
-        The routes dataframe containing the TSP calculated route path.
     cd_locations_df : pandas dataframe
         The dataframe of the locations of stores in Auckland.
     route_colour : string
@@ -158,7 +156,7 @@ def draw_route(ors_client, route_path, cd_locations_df, route_colour="White"):
     return (routes,
             folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_path), color=route_colour, opacity=0.5))
 
-def generate_selected_routes(ors_client, selected_routes, locations):#, route_df_filename="weekday_routes.pkl"):
+def generate_selected_routes(ors_client: ors.Client, selected_routes: list[list[str]], locations: pd.DataFrame) -> list[folium.PolyLine]: #, route_df_filename="weekday_routes.pkl"):
     '''
     Returns a list of folium line objects that correspond to the routes specified.
 
@@ -170,8 +168,6 @@ def generate_selected_routes(ors_client, selected_routes, locations):#, route_df
         The selected route pathes (which must be present in the route_df)
     locations : pandas dataframe
         The dataframe of the locations of stores in Auckland.
-    route_df_filename : string
-        The filename of the route dataframe (stored as a pickle).
 
     outputs:
     -------
@@ -185,9 +181,10 @@ def generate_selected_routes(ors_client, selected_routes, locations):#, route_df
         print("Drawing route {}".format(str(route_path)))
         (route, line) = draw_route(ors_client, route_path, locations, route_colour=palette[i])
         route_lines.append(line)
+
     return route_lines
 
-def read_keys():
+def read_keys() -> dict[str, str]:
     '''
     Reads the secure key set (keys that we don't want on git version control).
 

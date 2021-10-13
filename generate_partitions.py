@@ -3,7 +3,7 @@ import itertools
 import pandas as pd
 from tqdm import tqdm
 
-def generate_partitions(partition_data, weekend=False):
+def generate_partitions(partition_data: pd.DataFrame, weekend: bool = False) -> None:
     '''
     Generates all possible partitions of a regioned dataset and saves as a file.
 
