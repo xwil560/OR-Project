@@ -96,9 +96,11 @@ def summarise_stats(filename, density = False):
         data = pkl.load(fp)    
     
     m = np.mean(data)
+    med = np.median(data)
     s = np.std(data)
     lq = np.percentile(data, 2.5)
     uq = np.percentile(data, 97.5)
+    
 
 
     f, ax = plt.subplots(1, 2)
@@ -111,12 +113,12 @@ def summarise_stats(filename, density = False):
     ax[0].set_title(filename.split(".")[0])
     ax[0].set_xlabel("Cost (in thousands of $)")
     ax[0].set_ylabel("Frequency")
-    ax[1].text(0.1, 0.7, f"Mean : {np.round(m,2):5}\n$\sigma$ : {np.round(s,2):.5}\n95% confidence interval :\n   [{np.round(lq,2):5},{np.round(uq,2):5}]")
+    ax[1].text(0.1, 0.7, f"Mean : {np.round(m,2):5}\nMedian : {np.round(med,2):5}\n$\sigma$ : {np.round(s,2):.5}\n95% confidence interval :\n   [{np.round(lq,2):5},{np.round(uq,2):5}]")
     ax[1].set_xticks([])
     ax[1].set_yticks([])
 
 
-    plt.show()
+    plt.savefig("histograms" + os.sep + filename.split(".")[0])
             
 
 if __name__ == "__main__":
