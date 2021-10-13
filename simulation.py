@@ -62,7 +62,7 @@ def calc_demand(demand: List[dict[str, str]], route: List) -> int:
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
-    random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t/2, t, 2*t)
+    random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t*.75, t, 2.5*t)
     dfs = [df.iloc[0:0,:].copy() for i in range(Nruns)]
     for i in tq.trange(Nruns):
         dfs[i] = df.applymap(lambda t: random_time(t))
@@ -92,7 +92,7 @@ def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: Option
     return costs
 
 
-def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: Optional[bool] = False, Nruns: Optional[int] = 100) -> dict[str, int]:
+def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: Optional[bool] = False, Nruns: Optional[int] = 100) -> Dict[str, int]:
     locations_df.set_index('Store', inplace=True)
     locations_df = locations_df[locations_df['Type'] != "Distribution Centre"]
 
@@ -149,9 +149,11 @@ if __name__ == "__main__":
     # duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     # print(random_times(duration_df, 10))
     routs = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
-    # costs = simulation(time_1,time_2, weekend=True,Nruns = 1000, filename="weekend_routesHIGH.pkl")
-    # with open("cost_simulations" + os.sep + "WeekendHigh.pkl","wb") as fp:
-    #     pkl.dump(costs,fp)
+    time_1 = routs[:len(routs)//2]
+    time_2 = routs[:(len(routs)-len(routs)//2)]
+    costs = simulation(time_1,time_2, weekend=True,Nruns = 1000, filename="weekend_routesHIGH.pkl")
+    with open("cost_simulations" + os.sep + "WeekendHigh.pkl","wb") as fp:
+        pkl.dump(costs,fp)
 
     # #with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
     #  #   print(pkl.load(fp))

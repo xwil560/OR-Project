@@ -5,8 +5,9 @@ import json
 import os
 import pickle as pkl
 from tqdm import trange
+from typing import List, Tuple, Dict
 
-def TSP_calculate(df_time: pd.DataFrame,  stops: list[str]) -> tuple[list[str], float]:
+def TSP_calculate(df_time: pd.DataFrame,  stops: List[str]) -> Tuple[List[str], float]:
     '''
     Takes a list of stops and computes the best order to travel them in
 
@@ -46,7 +47,7 @@ def TSP_calculate(df_time: pd.DataFrame,  stops: list[str]) -> tuple[list[str], 
     return path, total_time
  
 
-def TSP_calculate_old(df_time: pd.DataFrame,  stops: list[str], weekend: bool = False) -> tuple[list[str], float]:
+def TSP_calculate_old(df_time: pd.DataFrame,  stops: List[str], weekend: bool = False) -> Tuple[List[str], float]:
     '''
     Takes a list of stops and computes the best order to travel them in
 
@@ -107,7 +108,7 @@ def TSP_calculate_old(df_time: pd.DataFrame,  stops: list[str], weekend: bool = 
 
     return path, cost
 
-def path_time(df: pd.DataFrame, path: list) -> float:
+def path_time(df: pd.DataFrame, path: List[str]) -> float:
     '''
     calculates the time taken to traverse a path in a certain order
 
@@ -133,7 +134,7 @@ def path_time(df: pd.DataFrame, path: list) -> float:
 
     return t
 
-def import_json(filename: str) -> dict[str, str]:
+def import_json(filename: str) -> Dict[str, str]:
     with open(filename) as fp:
         return json.loads(fp.read())
 
@@ -187,13 +188,13 @@ def create_LP_values(filename: str) -> pd.DataFrame:
 
     return df
 
-def route_demand(dict: dict[str, int], path: list[str]) -> int:
+def route_demand(dict: Dict[str, int], path: List[str]) -> int:
     df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv",index_col="Store")
     df_locs["Demand"] = df_locs["Type"].map(dict)
     total_demand = sum([df_locs.loc[store].Demand for store in path])
     return total_demand
 
-def route_cost(dict: dict[str, int], df: pd.DataFrame) -> pd.DataFrame:
+def route_cost(dict: Dict[str, int], df: pd.DataFrame) -> pd.DataFrame:
     demands = lambda path: route_demand(dict, path)
     df["demand"] = df.path.map(demands)
     df = df.loc[df.demand<=26]
