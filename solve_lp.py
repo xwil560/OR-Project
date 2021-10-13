@@ -4,8 +4,9 @@ from numpy.core.fromnumeric import shape
 import pandas as pd
 from pulp import *
 import pickle as pkl
+from typing import List
 
-def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[str], float]:
+def routes_solver(input_data_filename: str) -> tuple[List[pd.DataFrame], List[str], float]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -18,8 +19,8 @@ def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[st
 
     outputs:
     -------
-    list_of_routes : list
-        list of selected routes.
+    List_of_routes : List
+        List of selected routes.
 
     '''
 
@@ -85,9 +86,9 @@ def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[st
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return list_of_routes, list_of_trucks, value(prob.objective)
+    return List_of_routes, List_of_trucks, value(prob.objective)
 
-def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: int, N2: int) -> tuple[list[pd.DataFrame], list[pd.DataFrame]]:
+def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: int, N2: int) -> tuple[List[pd.DataFrame], List[pd.DataFrame]]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -100,8 +101,8 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: i
 
     outputs:
     -------
-    list_of_routes : list
-        list of selected routes.
+    List_of_routes : List
+        List of selected routes.
 
     '''
 
@@ -122,7 +123,7 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: i
     cost = data["cost"]
     if "weekend" in input_data_filename:
         df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
-        weekdaystores = list(df_locs.loc[df_locs.Type!="Countdown"].Store)
+        weekdaystores = List(df_locs.loc[df_locs.Type!="Countdown"].Store)
         weekdaystores.remove('Distribution Centre Auckland')
         A = data.drop(["cost","path", "total_time", "demand"]+weekdaystores+dropstores,axis=1)
     else: 
@@ -173,7 +174,7 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: i
     # The optimised objective function valof Ingredients pue is printed to the screen
     # print("Total Cost from Routes = ", value(prob.objective))
 
-    # Return a list of the stop numbers
+    # Return a List of the stop numbers
     
     list_of_routes_w = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if (v.varValue == 1 and "Woolworths" in v.name.split("_")[0])]
     list_of_routes_df = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if (v.varValue == 1 and "DailyFreight" in v.name.split("_")[0])]

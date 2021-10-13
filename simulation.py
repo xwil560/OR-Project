@@ -12,8 +12,35 @@ import matplotlib.pyplot as plt
 import pickle as pkl 
 import seaborn as sns
 from glob import glob
+from typing import List, Dict, Optional
 
-def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2: list[list[str]]) -> tuple[list[str], list[str], list[str], int, int]:
+def change_demand(demands: List[Dict[str, str]], time_1: List[List[str]], time_2: List[List[str]]) -> tuple[List[str], List[str], List[str], int, int]:
+    '''
+    Generates a set of routes and unsatisfied nodes give a new demand distrubution. 
+
+    inputs:
+    ------
+    demands: List[dict[str, str]]
+        A dictionary of stores and their generated demands.
+
+    time_1: List[List[str]]
+        A List of routes in the first time slot.
+
+    time_2: List[List[str]]) 
+        A List of routes in the second time slot.
+    
+    outputs:
+    ------
+    new_routes1: List[str]
+    
+    new_routes2: List[str]
+    
+    unsatisfied_nodes: List[str]
+    
+    N1: int
+    
+    N2: int
+    '''
     unsatisfied_nodes = []
     new_routes1 = []
     new_routes2 = []
@@ -31,7 +58,7 @@ def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2
     return new_routes1, new_routes2, unsatisfied_nodes, N1, N2
 
 
-def calc_demand(demand: list[dict[str, str]], route: list) -> int:
+def calc_demand(demand: List[dict[str, str]], route: List) -> int:
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
@@ -42,7 +69,7 @@ def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
 
     return dfs
 
-def simulation(time_1: list[list[str]], time_2: list[list[str]], weekend: bool = False, Nruns: int = 100, filename: str = "weekday_routesLOW.pkl") -> list[int]:
+def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: Optional[bool] = False, Nruns: Optional[int] = 100, filename: Optional[str] = "weekday_routesLOW.pkl") -> List[int]:
     costs = np.zeros(Nruns)
     locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
@@ -65,7 +92,7 @@ def simulation(time_1: list[list[str]], time_2: list[list[str]], weekend: bool =
     return costs
 
 
-def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: bool = False, Nruns: int = 100) -> dict[str, int]:
+def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: Optional[bool] = False, Nruns: Optional[int] = 100) -> dict[str, int]:
     locations_df.set_index('Store', inplace=True)
     locations_df = locations_df[locations_df['Type'] != "Distribution Centre"]
 
@@ -75,7 +102,7 @@ def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weeke
     demand_data['Weekday'] = demand_data.Date.dt.dayofweek 
     demand_data['Size'] = demand_data['Store'].map(lambda store: "Big" if locations_df.loc[store]['Type'] in ["Countdown"] else "Small")
 
-    bootstrap_val = lambda size: demand_data[(demand_data['Size'] == size) & (demand_data['Weekday'].isin([5]) if weekend else demand_data['Weekday'].isin(list(range(0,5))))].sample(n=1)['Demand']
+    bootstrap_val = lambda size: demand_data[(demand_data['Size'] == size) & (demand_data['Weekday'].isin([5]) if weekend else demand_data['Weekday'].isin(List(range(0,5))))].sample(n=1)['Demand']
     # Apply random samples
     demand_dict = {
         "Countdown" : "Big",
@@ -88,7 +115,7 @@ def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weeke
     return [{str(ldf[0]): int(bootstrap_val(demand_dict[ldf[1]])) for ldf in locations_df.itertuples()} for i in tq.trange(Nruns)]
 
 
-def summarise_stats(filename: str, density: bool = False) -> None:
+def summarise_stats(filename: str, density: Optional[bool] = False) -> None:
     with open("cost_simulations" + os.sep + filename,"rb") as fp:
         data = pkl.load(fp)    
     
@@ -98,8 +125,6 @@ def summarise_stats(filename: str, density: bool = False) -> None:
     lq = np.percentile(data, 2.5)
     uq = np.percentile(data, 97.5)
     
-
-
     f, ax = plt.subplots(1, 2)
     if density:
         sns.kdeplot(data/1000, ax=ax[0])
@@ -114,9 +139,7 @@ def summarise_stats(filename: str, density: bool = False) -> None:
     ax[1].set_xticks([])
     ax[1].set_yticks([])
 
-
     plt.savefig("histograms" + os.sep + filename.split(".")[0])
-            
 
 if __name__ == "__main__":
     # locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
