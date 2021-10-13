@@ -12,9 +12,9 @@ import matplotlib.pyplot as plt
 import pickle as pkl 
 import seaborn as sns
 from glob import glob
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 
-def change_demand(demands: List[Dict[str, str]], time_1: List[List[str]], time_2: List[List[str]]) -> tuple[List[str], List[str], List[str], int, int]:
+def change_demand(demands: List[Dict[str, str]], time_1: List[List[str]], time_2: List[List[str]]) -> Tuple[List[str], List[str], List[str], int, int]:
     '''
     Generates a set of routes and unsatisfied nodes give a new demand distrubution. 
 
@@ -58,7 +58,7 @@ def change_demand(demands: List[Dict[str, str]], time_1: List[List[str]], time_2
     return new_routes1, new_routes2, unsatisfied_nodes, N1, N2
 
 
-def calc_demand(demand: List[dict[str, str]], route: List) -> int:
+def calc_demand(demand: List[Dict[str, str]], route: List) -> int:
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:

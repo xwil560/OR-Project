@@ -212,7 +212,6 @@ if __name__ == "__main__":
 
     ## Create the weekday map
 
-<<<<<<< Updated upstream
     m = create_weekday_map()
     
     #selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
@@ -225,22 +224,6 @@ if __name__ == "__main__":
         [line.add_to(m) for line in generate_selected_routes(ors_client, selected_routes, locations)]
 
         m.save(f"maps/{demand_file.split('.')[0]}_map.html")
-=======
-    import solve_lp as slp
-    import glob
-    import os
-
-    files = glob.glob("differentDemands" + os.sep + "*.pkl")
-
-    for demand_file in [o[1] for o in files.split(os.sep)]:
-        m = create_weekday_map() if "weekday" in demand_file else create_weekend_map()
-        
-        #selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
-        selected_routes = slp.routes_solver(demand_file)
-        [line.add_to(m) for line in generate_selected_routes(ors_client, selected_routes, locations)]
-
-        m.save(f"maps/{demand_file}.html")
->>>>>>> Stashed changes
 
     ## Create the weekend map
 
