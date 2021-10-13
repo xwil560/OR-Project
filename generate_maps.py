@@ -117,7 +117,7 @@ def get_coords_from_locations(locations_data):
     coords = coords.to_numpy().tolist()
     return coords
 
-def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour="White"):
+def draw_route(ors_client, route_path, cd_locations_df, route_colour="White"):
     '''
     Returns a folium line object that corresponds to the route specified.
 
@@ -143,8 +143,8 @@ def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour
             Contains the line object that can be written to the map.
     '''
     # Convert the stops into id's
-    route_data = route_df[route_df.index == route_number]
-    stop_coords = cd_locations_df[cd_locations_df.index.isin(list(route_data['path'])[0])][['Long', 'Lat']].to_numpy().tolist()
+    #route_data = route_df[route_df.index == route_number]
+    stop_coords = cd_locations_df[cd_locations_df.index.isin(list(route_path))][['Long', 'Lat']].to_numpy().tolist()
 
     # Add distrubution center to stop and end
     coords_dist = cd_locations_df[cd_locations_df['Type'] == "Distribution Centre"][['Long', 'Lat']].to_numpy().tolist()[0]
@@ -154,9 +154,9 @@ def draw_route(ors_client, route_number, route_df, cd_locations_df, route_colour
     # Calculate and return the route
     routes = ors_client.directions(coordinates = stop_coords, profile = 'driving-hgv', format = 'geojson', validate = False)
     return (routes,
-            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_data['path']), color=route_colour))
+            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_path), color=route_colour))
 
-def generate_selected_routes(ors_client, selected_routes, locations, route_df_filename="weekday_routes.pkl"):
+def generate_selected_routes(ors_client, selected_routes, locations):#, route_df_filename="weekday_routes.pkl"):
     '''
     Returns a list of folium line objects that correspond to the routes specified.
 
@@ -164,8 +164,8 @@ def generate_selected_routes(ors_client, selected_routes, locations, route_df_fi
     ------
     ors_client : openrouteservice object
         The client object from the ORS python package.
-    selected_routes : list[int]
-        The selected route numbers (indexes).
+    selected_routes : list[list[str]]
+        The selected route pathes (which must be present in the route_df)
     locations : pandas dataframe
         The dataframe of the locations of stores in Auckland.
     route_df_filename : string
@@ -176,12 +176,12 @@ def generate_selected_routes(ors_client, selected_routes, locations, route_df_fi
     route_lines : list[folium object]
         A python list of all the folium line object routes to be graphed to a map.
     '''
-    routes_df = pd.read_pickle(route_df_filename)
+    #routes_df = pd.read_pickle(route_df_filename)
     route_lines = []
     palette = sns.color_palette("hls", len(selected_routes)).as_hex()
-    for i, route in enumerate(selected_routes):
-        print("Drawing route {}".format(str(route)))
-        (route, line) = draw_route(ors_client, route, routes_df, locations, route_colour=palette[i])
+    for i, route_path in enumerate(selected_routes):
+        print("Drawing route {}".format(str(route_path)))
+        (route, line) = draw_route(ors_client, route_path, locations, route_colour=palette[i])
         route_lines.append(line)
     return route_lines
 
@@ -213,16 +213,17 @@ if __name__ == "__main__":
 
     m = create_weekday_map()
     
-    selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
-    [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekday_routes, locations, route_df_filename="data/weekday_routes.pkl")]
+    #selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
+    selected_weekday_routes = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
+    [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekday_routes, locations)]
 
     m.save("maps/weekday_map.html")
 
     ## Create the weekend map
 
-    m = create_weekend_map()
+    #m = create_weekend_map()
 
-    selected_weekend_routes = [2333, 3227, 4054, 4763, 4863, 5136, 5387, 5542, 791, 1595, 549] 
-    [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekend_routes, locations, route_df_filename="data/weekend_routes.pkl")]
+    #selected_weekend_routes = [2333, 3227, 4054, 4763, 4863, 5136, 5387, 5542, 791, 1595, 549] 
+    #[line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekend_routes, locations, route_df_filename="data/weekend_routes.pkl")]
 
-    m.save("maps/weekend_map.html")
+    #m.save("maps/weekend_map.html")
