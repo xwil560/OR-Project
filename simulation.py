@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import pickle as pkl 
 import seaborn as sns
 from glob import glob
+from typing import List, Tuple, Dict
+
 
 def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2: list[list[str]]) -> tuple[list[str], list[str], list[str], int, int]:
     unsatisfied_nodes = []
@@ -35,7 +37,7 @@ def calc_demand(demand: list[dict[str, str]], route: list) -> int:
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
-    random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t/2, t, 2*t)
+    random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t*.75, t, 2.5*t)
     dfs = [df.iloc[0:0,:].copy() for i in range(Nruns)]
     for i in tq.trange(Nruns):
         dfs[i] = df.applymap(lambda t: random_time(t))
@@ -76,7 +78,7 @@ def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weeke
     demand_data['Size'] = demand_data['Store'].map(lambda store: "Big" if locations_df.loc[store]['Type'] in ["Countdown"] else "Small")
 
     bootstrap_val = lambda size: demand_data[(demand_data['Size'] == size) & (demand_data['Weekday'].isin([5]) if weekend else demand_data['Weekday'].isin(list(range(0,5))))].sample(n=1)['Demand']
-    # Apply random samples
+    # Apply random samples d`
     demand_dict = {
         "Countdown" : "Big",
         "Countdown Metro" : "Small",
@@ -126,6 +128,8 @@ if __name__ == "__main__":
     # duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     # print(random_times(duration_df, 10))
     routs = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
+    # time_1 = routs[:len(routs)//2]
+    # time_2 = routs[:(len(routs)-len(routs)//2)]
     # costs = simulation(time_1,time_2, weekend=True,Nruns = 1000, filename="weekend_routesHIGH.pkl")
     # with open("cost_simulations" + os.sep + "WeekendHigh.pkl","wb") as fp:
     #     pkl.dump(costs,fp)
