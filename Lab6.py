@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def alphaBetaFromAmB(a, m, b):
+def alphaBetaFromAmB(a: int, m: int, b: int):
     # Taken from code by David L. Mueller
     #github dlmueller/PERT-Beta-Python
     first_numer_alpha = 2.0 * (b + 4 * m - 5 * a)
@@ -19,7 +19,7 @@ def alphaBetaFromAmB(a, m, b):
     return alpha, beta
 
 
-def generateTaskTime(a, m, b, seed=42):
+def generateTaskTime(a: int, m: int, b: int, seed: int = 42):
     
     alpha, beta = alphaBetaFromAmB(a, m, b)
     location = a
