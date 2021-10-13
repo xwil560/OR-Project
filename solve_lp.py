@@ -87,7 +87,7 @@ def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[st
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
 
-    return List_of_routes, List_of_trucks, value(prob.objective)
+    return list_of_routes, list_of_trucks, value(prob.objective)
 
 def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: int, N2: int) -> Tuple[List[pd.DataFrame], List[pd.DataFrame]]:
     '''
@@ -124,7 +124,7 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: i
     cost = data["cost"]
     if "weekend" in input_data_filename:
         df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
-        weekdaystores = List(df_locs.loc[df_locs.Type!="Countdown"].Store)
+        weekdaystores = list(df_locs.loc[df_locs.Type!="Countdown"].Store)
         weekdaystores.remove('Distribution Centre Auckland')
         A = data.drop(["cost","path", "total_time", "demand"]+weekdaystores+dropstores,axis=1)
     else: 
