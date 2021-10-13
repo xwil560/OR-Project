@@ -3,9 +3,10 @@
 from scipy import stats
 import matplotlib.pyplot as plt
 import numpy as np
+from typing import List, Tuple, Dict
 
 
-def alphaBetaFromAmB(a: int, m: int, b: int) -> tuple[float, float]:
+def alphaBetaFromAmB(a: int, m: int, b: int) -> Tuple[float, float]:
     # Taken from code by David L. Mueller
     #github dlmueller/PERT-Beta-Python
     first_numer_alpha = 2.0 * (b + 4 * m - 5 * a)

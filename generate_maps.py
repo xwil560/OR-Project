@@ -6,6 +6,8 @@ import glob
 import os
 import seaborn as sns
 import solve_lp as slp
+from typing import List, Tuple, Dict
+
 
 def create_weekday_map() -> folium.Map:
     '''
@@ -101,7 +103,7 @@ def create_weekend_map() -> folium.Map:
 #    return (routes, 
 #            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = "", color="Red"))
 
-def get_coords_from_locations(locations_data: pd.DataFrame) -> list[list[float]]:
+def get_coords_from_locations(locations_data: pd.DataFrame) -> List[List[float]]:
     '''
     Generates a subset dataset of coordinates which can be indexed using the store numbers.
 
@@ -119,7 +121,7 @@ def get_coords_from_locations(locations_data: pd.DataFrame) -> list[list[float]]
     coords = coords.to_numpy().tolist()
     return coords
 
-def draw_route(ors_client: ors.Client, route_path: int, cd_locations_df: pd.DataFrame, route_colour: str = "White") -> tuple[ors.Client, folium.PolyLine]:
+def draw_route(ors_client: ors.Client, route_path: int, cd_locations_df: pd.DataFrame, route_colour: str = "White") -> Tuple[ors.Client, folium.PolyLine]:
     '''
     Returns a folium line object that corresponds to the route specified.
 
@@ -156,7 +158,7 @@ def draw_route(ors_client: ors.Client, route_path: int, cd_locations_df: pd.Data
     return (routes,
             folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_path), color=route_colour, opacity=0.5))
 
-def generate_selected_routes(ors_client: ors.Client, selected_routes: list[list[str]], locations: pd.DataFrame) -> list[folium.PolyLine]: #, route_df_filename="weekday_routes.pkl"):
+def generate_selected_routes(ors_client: ors.Client, selected_routes: List[List[str]], locations: pd.DataFrame) -> List[folium.PolyLine]: #, route_df_filename="weekday_routes.pkl"):
     '''
     Returns a list of folium line objects that correspond to the routes specified.
 
@@ -184,7 +186,7 @@ def generate_selected_routes(ors_client: ors.Client, selected_routes: list[list[
 
     return route_lines
 
-def read_keys() -> dict[str, str]:
+def read_keys() -> Dict[str, str]:
     '''
     Reads the secure key set (keys that we don't want on git version control).
 

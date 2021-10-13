@@ -4,8 +4,10 @@ from numpy.core.fromnumeric import shape
 import pandas as pd
 from pulp import *
 import pickle as pkl
+from typing import List, Tuple, Dict
 
-def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[str], float]:
+
+def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[str], float]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -87,7 +89,7 @@ def routes_solver(input_data_filename: str) -> tuple[list[pd.DataFrame], list[st
 
     return list_of_routes, list_of_trucks, value(prob.objective)
 
-def route_modifier(input_data_filename: str, unsatisfied_nodes: list[str], N1: int, N2: int) -> tuple[list[pd.DataFrame], list[pd.DataFrame]]:
+def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: int, N2: int) -> Tuple[List[pd.DataFrame], List[pd.DataFrame]]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
