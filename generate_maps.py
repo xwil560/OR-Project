@@ -221,7 +221,7 @@ if __name__ == "__main__":
     files = glob.glob("differentDemands" + os.sep + "*.pkl")
 
     for demand_file in files:
-        demand_file = demand_file.split('\\')[-1]
+        demand_file = demand_file.split(os.sep)[-1]
         m = create_weekday_map() if "weekday" in demand_file else create_weekend_map()
         selected_routes, x, y = slp.routes_solver(demand_file)
         [line.add_to(m) for line in generate_selected_routes(ors_client, selected_routes, locations)]
