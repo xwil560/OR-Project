@@ -2,8 +2,10 @@ import pandas as pd
 import openrouteservice as ors
 import folium
 import json
-# from functools import cache
+import glob
+import os
 import seaborn as sns
+import solve_lp as slp
 
 def create_weekday_map():
     '''
@@ -214,10 +216,15 @@ if __name__ == "__main__":
     m = create_weekday_map()
     
     #selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
-    selected_weekday_routes = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
-    [line.add_to(m) for line in generate_selected_routes(ors_client, selected_weekday_routes, locations)]
+    files = glob.glob("differentDemands" + os.sep + "*.pkl")
 
-    m.save("maps/weekday_map.html")
+    for demand_file in files:
+        demand_file = demand_file.split(os.sep)[-1]
+        m = create_weekday_map() if "weekday" in demand_file else create_weekend_map()
+        selected_routes, x, y = slp.routes_solver(demand_file)
+        [line.add_to(m) for line in generate_selected_routes(ors_client, selected_routes, locations)]
+
+        m.save(f"maps/{demand_file.split('.')[0]}_map.html")
 
     ## Create the weekend map
 
