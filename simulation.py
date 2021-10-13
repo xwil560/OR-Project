@@ -13,7 +13,7 @@ import pickle as pkl
 import seaborn as sns
 from glob import glob
 
-def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2: list[list[str]]):
+def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2: list[list[str]]) -> tuple[list[str], list[str], list[str], int, int]:
     unsatisfied_nodes = []
     new_routes1 = []
     new_routes2 = []
@@ -31,7 +31,7 @@ def change_demand(demands: list[dict[str, str]], time_1: list[list[str]], time_2
     return new_routes1, new_routes2, unsatisfied_nodes, N1, N2
 
 
-def calc_demand(demand: list[dict[str, str]], route: list):
+def calc_demand(demand: list[dict[str, str]], route: list) -> int:
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
@@ -42,7 +42,7 @@ def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
 
     return dfs
 
-def simulation(time_1: list[list[str]], time_2: list[list[str]], weekend: bool = False, Nruns: int = 100, filename: str = "weekday_routesLOW.pkl"):
+def simulation(time_1: list[list[str]], time_2: list[list[str]], weekend: bool = False, Nruns: int = 100, filename: str = "weekday_routesLOW.pkl") -> list[int]:
     costs = np.zeros(Nruns)
     locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
@@ -65,8 +65,7 @@ def simulation(time_1: list[list[str]], time_2: list[list[str]], weekend: bool =
     return costs
 
 
-
-def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: bool = False, Nruns: int = 100):
+def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: bool = False, Nruns: int = 100) -> dict[str, int]:
     locations_df.set_index('Store', inplace=True)
     locations_df = locations_df[locations_df['Type'] != "Distribution Centre"]
 
@@ -89,7 +88,7 @@ def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weeke
     return [{str(ldf[0]): int(bootstrap_val(demand_dict[ldf[1]])) for ldf in locations_df.itertuples()} for i in tq.trange(Nruns)]
 
 
-def summarise_stats(filename: str, density: bool = False):
+def summarise_stats(filename: str, density: bool = False) -> None:
     with open("cost_simulations" + os.sep + filename,"rb") as fp:
         data = pkl.load(fp)    
     
