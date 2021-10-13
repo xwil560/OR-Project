@@ -2,8 +2,10 @@ import pandas as pd
 import openrouteservice as ors
 import folium
 import json
-# from functools import cache
+import glob
+import os
 import seaborn as sns
+import solve_lp as slp
 
 def create_weekday_map():
     '''
@@ -214,10 +216,6 @@ if __name__ == "__main__":
     m = create_weekday_map()
     
     #selected_weekday_routes = [1438,1824,1939,2047,2085,2270,2330,2502,2533,2562,2636,2969,3217,332,831,903,1018,1167,1369,503,613] 
-    import solve_lp as slp
-    import glob
-    import os
-
     files = glob.glob("differentDemands" + os.sep + "*.pkl")
 
     for demand_file in files:
