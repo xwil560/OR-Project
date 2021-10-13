@@ -154,7 +154,7 @@ def draw_route(ors_client, route_path, cd_locations_df, route_colour="White"):
     # Calculate and return the route
     routes = ors_client.directions(coordinates = stop_coords, profile = 'driving-hgv', format = 'geojson', validate = False)
     return (routes,
-            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_path), color=route_colour))
+            folium.PolyLine(locations = [list(reversed(coord)) for coord in routes['features'][0]['geometry']['coordinates']], tooltip = str(route_path), color=route_colour, opacity=0.5))
 
 def generate_selected_routes(ors_client, selected_routes, locations):#, route_df_filename="weekday_routes.pkl"):
     '''
