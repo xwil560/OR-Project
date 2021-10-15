@@ -1,3 +1,4 @@
+from os import remove
 from re import A
 import numpy as np
 from numpy.core.fromnumeric import shape
@@ -130,7 +131,7 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: i
     else: 
         A = data.drop(["cost","path", "total_time", "demand"]+dropstores,axis=1)
 
-    print(data)
+
     routes = np.arange(len(cost)) # Array to keep truck of the amount of routes
 
     # Generate binary variables for Amount of Trucks
@@ -183,10 +184,102 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: i
 
     return list_of_routes_w, list_of_routes_df
 
+def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: bool = False) -> Tuple[List[pd.DataFrame], List[str], float]:
+    '''
+    Takes in a file name. Solves a linear problem, returning the cheapest price
+    for pallet deliveries.
+
+
+    inputs:
+    ------
+    input_data_filename : string
+        file name of the routes, costs, locations being solved
+
+    outputs:
+    -------
+    List_of_routes : List
+        List of selected routes.
+
+    '''
+
+    # Read in the pickle
+    data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
+    data.reset_index(inplace=True)
+    
+    # Organize the data into costs and Aki matrix
+    
+    data = data[data[removed_store]==0]
+    data.reset_index(inplace=True)
+
+    
+    
+    # Organize the data into costs and Aki matrix
+    cost = data["cost"]
+    if "weekend" in input_data_filename:
+        df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+        weekdaystores = list(df_locs.loc[df_locs.Type!="Countdown"].Store)
+        weekdaystores.remove('Distribution Centre Auckland', removed_store)
+        A = data.drop(["cost","path", "total_time", "demand", removed_store]+weekdaystores,axis=1)
+    else: 
+        A = data.drop(["cost","path", "total_time", "demand", removed_store],axis=1)
+
+
+    cost = data["cost"]
+    routes = np.arange(len(cost)) # Array to keep truck of the amount of routes
+
+    # Generate binary variables for Amount of Trucks
+    R1=LpVariable.dicts("Woolworths1",routes,0,1,LpBinary)
+    R2=LpVariable.dicts("Woolworths2",routes,0,1,LpBinary)
+
+    DF1 = LpVariable.dicts("DailyFreight1",routes,0,1,LpBinary)
+    DF2 = LpVariable.dicts("DailyFreight2",routes,0,1,LpBinary)
+
+    Ntrucks = LpVariable("NewTrucks", 0, None, LpInteger)
+    # Define the cost minimization problem
+    prob = LpProblem("Routes Problem",LpMinimize)
+
+    # Objective Function
+    prob += lpSum([((DF2[i]+DF1[i])*2000) + (R1[i]+R2[i])*cost[i] for i in routes]) + 5000*Ntrucks
+
+    # Store Delivery Maximum
+    for loc in A.columns:
+        if loc != "index":        
+            prob += lpSum([A[loc].iloc[i]*(R1[i]+R2[i]+DF1[i]+DF2[i]) for i in routes]) == 1, "Store Delivery Maximum"+loc
+
+    prob += lpSum([R1[i] for i in routes]) - Ntrucks <= 30, 'Max trucks on Route 1'
+    prob += lpSum([R2[i] for i in routes]) - Ntrucks <= 30, 'Max trucks on Route 2'
+
+    # Solving routines
+    # prob.writeLP('Routes.lp')
+
+
+    #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    PULP_CBC_CMD(msg=0).solve(prob)
+
+
+    # The status of the solution is printed to the screen
+    #print("Status:", LpStatus[prob.status])
+
+    # Each of the variables is printed with its resolved optimum value
+    # for v in prob.variables():
+    #     if v.varValue == 1:
+    #         print(data.path.iloc[int(v.name.split("_")[-1])], "=", v.varValue)
+
+    # The optimised objective function valof Ingredients pue is printed to the screen
+    # print("Total Cost from Routes = ", value(prob.objective))
+
+    # Return a list of the stop numbers
+    list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
+    list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
+
+    return list_of_routes, list_of_trucks, value(prob.objective)
+
 
 if __name__ == "__main__":
     #routes_solver("weekday_routes.pkl")
     # routes_solver("weekday_routesLOW.pkl")
-    stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
-    print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
-
+    # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
+    # print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
+    removed_store = 'Countdown Airport'
+    print(extra_trucks_solver("weekday_routesLOW.pkl", removed_store))
+    print(extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True))

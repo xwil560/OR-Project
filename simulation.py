@@ -146,22 +146,22 @@ if __name__ == "__main__":
     # print(demands)
     # duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
     # print(random_times(duration_df, 10))
-    demand_file = "weekday_routesHIGH.pkl"
-    routs, x, y = routes_solver(demand_file)
-    # routs = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
-    time_1 = routs[:len(routs)//2]
-    time_2 = routs[:(len(routs)-len(routs)//2)]
-    costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename=demand_file)
-    with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","wb") as fp:
-        pkl.dump(costs,fp)
+    # demand_file = "weekday_routesHIGH.pkl"
+    # routs, x, y = routes_solver(demand_file)
+    # # routs = [['Countdown Sylvia Park', 'Countdown Greenlane', 'Countdown Onehunga'], ['Countdown St Johns', 'Countdown Meadowbank', 'Countdown Mt Wellington'], ['Countdown Highland Park', 'Countdown Aviemore Drive', 'Countdown Pakuranga'], ['Countdown Howick', 'Countdown Meadowlands', 'Countdown Botany Downs'], ['Countdown Newmarket', 'Countdown Auckland City', 'Countdown Victoria Street West'], ['Countdown Three Kings'], ['Countdown Lynfield', 'Countdown Blockhouse Bay', 'Countdown Pt Chevalier'], ['Countdown Birkenhead', 'Countdown Glenfield', 'Countdown Northcote'], ['Countdown Browns Bay', 'Countdown Mairangi Bay', 'Countdown Sunnynook'], ['Countdown Hauraki Corner', 'Countdown Milford', 'Countdown Takapuna'], ['Countdown Lynmall', 'Countdown Kelston', 'Countdown Henderson'], ['Countdown Westgate', 'Countdown Northwest', 'Countdown Hobsonville'], ['Countdown Manurewa', 'Countdown Airport', 'Countdown Mangere Mall'], ['Countdown Takanini', 'Countdown Roselands', 'Countdown Papakura'], ['Countdown Mangere East'], ['Countdown Grey Lynn', 'Countdown Ponsonby', 'Countdown Grey Lynn Central'], ['Countdown Mt Eden', 'Countdown St Lukes', 'Countdown Mt Roskill'], ['Countdown Lincoln Road', 'Countdown Te Atatu South', 'Countdown Te Atatu'], ['Countdown Manukau Mall', 'Countdown Manukau', 'Countdown Papatoetoe']]
+    # time_1 = routs[:len(routs)//2]
+    # time_2 = routs[:(len(routs)-len(routs)//2)]
+    # costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename=demand_file)
+    # with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","wb") as fp:
+    #     pkl.dump(costs,fp)
 
-    demand_file = "weekday_routesLOW.pkl"
-    routs, x, y = routes_solver(demand_file)
-    time_1 = routs[:len(routs)//2]
-    time_2 = routs[:(len(routs)-len(routs)//2)]
-    costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename=demand_file)
-    with open("cost_simulations" + os.sep + "WeekdayLOW.pkl","wb") as fp:
-        pkl.dump(costs,fp)
+    # demand_file = "weekday_routesLOW.pkl"
+    # routs, x, y = routes_solver(demand_file)
+    # time_1 = routs[:len(routs)//2]
+    # time_2 = routs[:(len(routs)-len(routs)//2)]
+    # costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename=demand_file)
+    # with open("cost_simulations" + os.sep + "WeekdayLOW.pkl","wb") as fp:
+    #     pkl.dump(costs,fp)
     # #with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
     #  #   print(pkl.load(fp))
 
@@ -173,6 +173,6 @@ if __name__ == "__main__":
     #     print(pkl.load(fp))
     
 
-    # files = glob("cost_simulations" + os.sep + "*")
-    # for f in files:
-    #     summarise_stats(f.split(os.sep)[-1])
+    files = glob("cost_simulations" + os.sep + "*")
+    for f in files:
+        summarise_stats(f.split(os.sep)[-1])
