@@ -5,7 +5,7 @@ from numpy.core.fromnumeric import shape
 import pandas as pd
 from pulp import *
 import pickle as pkl
-from typing import List, Tuple, Dict
+from typing import List, Tuple, Dict, Optional
 
 
 def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[str], float]:
@@ -184,7 +184,7 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: i
 
     return list_of_routes_w, list_of_routes_df
 
-def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: bool = False) -> Tuple[List[pd.DataFrame], List[str], float]:
+def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: bool = False, Ntrucks: Optional[int] = None) -> Tuple[List[pd.DataFrame], List[str], float]:
     '''
     Takes in a file name. Solves a linear problem, returning the cheapest price
     for pallet deliveries.
@@ -204,7 +204,6 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
 
     # Read in the pickle
     data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
-    data.reset_index(inplace=True)
     
     # Organize the data into costs and Aki matrix
     
@@ -218,7 +217,8 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     if "weekend" in input_data_filename:
         df_locs = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
         weekdaystores = list(df_locs.loc[df_locs.Type!="Countdown"].Store)
-        weekdaystores.remove('Distribution Centre Auckland', removed_store)
+        weekdaystores.remove('Distribution Centre Auckland')
+        weekdaystores = list(np.array(weekdaystores)[np.array(weekdaystores)!=removed_store])
         A = data.drop(["cost","path", "total_time", "demand", removed_store]+weekdaystores,axis=1)
     else: 
         A = data.drop(["cost","path", "total_time", "demand", removed_store],axis=1)
@@ -234,7 +234,8 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     DF1 = LpVariable.dicts("DailyFreight1",routes,0,1,LpBinary)
     DF2 = LpVariable.dicts("DailyFreight2",routes,0,1,LpBinary)
 
-    Ntrucks = LpVariable("NewTrucks", 0, None, LpInteger)
+    if Ntrucks is None:
+        Ntrucks = LpVariable("NewTrucks", 0, None, LpInteger)
     # Define the cost minimization problem
     prob = LpProblem("Routes Problem",LpMinimize)
 
@@ -255,7 +256,7 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
 
     #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
     PULP_CBC_CMD(msg=0).solve(prob)
-
+    # prob.solve()
 
     # The status of the solution is printed to the screen
     #print("Status:", LpStatus[prob.status])
@@ -271,8 +272,11 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     # Return a list of the stop numbers
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
-
-    return list_of_routes, list_of_trucks, value(prob.objective)
+    try:
+        return value(prob.objective), Ntrucks.varValue
+    except AttributeError:
+        return value(prob.objective), Ntrucks
+    
 
 
 if __name__ == "__main__":
