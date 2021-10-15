@@ -280,6 +280,9 @@ if __name__ == "__main__":
     # routes_solver("weekday_routesLOW.pkl")
     # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
     # print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
-    removed_store = 'Countdown Airport'
-    print(extra_trucks_solver("weekday_routesLOW.pkl", removed_store))
-    print(extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True))
+    stops = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    stops = stops[stops["Store"] != "Distribution Centre Auckland"]
+    for removed_store in [data[3] for data in stops.itertuples()]:
+        cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
+        cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = trucks)
+        print(f"Removed: {removed_store}, Weekday Cost: {cost_weekday}, Weekend Cost: {cost_weekend}, Total Cost: {cost_weekday + cost_weekend}, Trucks: {trucks}")
