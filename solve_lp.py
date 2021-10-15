@@ -286,7 +286,25 @@ if __name__ == "__main__":
     # print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
     stops = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     stops = stops[stops["Store"] != "Distribution Centre Auckland"]
-    for removed_store in [data[3] for data in stops.itertuples()]:
+    removed_stores = [data[3] for data in stops.itertuples()]
+    Weekday_cost = []
+    Weekend_cost = []
+    Trucks = []
+
+    for removed_store in removed_stores:
         cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
         cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = trucks)
-        print(f"Removed: {removed_store}, Weekday Cost: {cost_weekday}, Weekend Cost: {cost_weekend}, Total Cost: {cost_weekday + cost_weekend}, Trucks: {trucks}")
+        Weekday_cost.append(cost_weekday)
+        Weekend_cost.append(cost_weekend)
+        Trucks.append(trucks)
+        # print(f"Removed: {removed_store}, Weekday Cost: {cost_weekday}, Weekend Cost: {cost_weekend}, Total Cost: {cost_weekday + cost_weekend}, Trucks: {trucks}")
+
+    output = pd.DataFrame({
+        "removed_stores" : removed_stores,
+        "weekday_cost" : Weekday_cost,
+        "weekend_cost" : Weekend_cost,
+        "Trucks" : Trucks,
+        "Total_Cost" : np.array(Weekend_cost) + np.array(Weekday_cost),
+    })
+
+    output.to_pickle("removed_stores.pkl")
