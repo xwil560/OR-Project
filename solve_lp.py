@@ -2,6 +2,7 @@ from os import remove
 from re import A
 import numpy as np
 from numpy.core.fromnumeric import shape
+from close_stores import *
 import pandas as pd
 from pulp import *
 import pickle as pkl
@@ -273,9 +274,9 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     list_of_routes = [data.path.iloc[int(v.name.split("_")[-1])] for v in prob.variables() if v.varValue == 1]
     list_of_trucks = [v.name.split("_")[0] for v in prob.variables() if v.varValue == 1]
     try:
-        return value(prob.objective), Ntrucks.varValue
+        return list_of_routes, value(prob.objective), Ntrucks.varValue
     except AttributeError:
-        return value(prob.objective), Ntrucks
+        return list_of_routes,  value(prob.objective), Ntrucks
     
 
 
@@ -284,27 +285,36 @@ if __name__ == "__main__":
     # routes_solver("weekday_routesLOW.pkl")
     # stops = ['Countdown Airport',  'Countdown Auckland City',  'Countdown Aviemore Drive','Countdown Birkenhead','SuperValue Palomino']
     # print(route_modifier("weekday_routesLOW.pkl", stops, 2, 1))
-    stops = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
-    stops = stops[stops["Store"] != "Distribution Centre Auckland"]
-    removed_stores = [data[3] for data in stops.itertuples()]
-    Weekday_cost = []
-    Weekend_cost = []
-    Trucks = []
+    # stops = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
+    # stops = stops[stops["Store"] != "Distribution Centre Auckland"]
+    # removed_stores = [data[3] for data in stops.itertuples()]
+    # Weekday_cost = []
+    # Weekend_cost = []
+    # Trucks = []
 
-    for removed_store in removed_stores:
-        cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
-        cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = trucks)
-        Weekday_cost.append(cost_weekday)
-        Weekend_cost.append(cost_weekend)
-        Trucks.append(trucks)
-        # print(f"Removed: {removed_store}, Weekday Cost: {cost_weekday}, Weekend Cost: {cost_weekend}, Total Cost: {cost_weekday + cost_weekend}, Trucks: {trucks}")
+    # for removed_store in removed_stores:
+    #     cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
+    #     cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = trucks)
+    #     Weekday_cost.append(cost_weekday)
+    #     Weekend_cost.append(cost_weekend)
+    #     Trucks.append(trucks)
+    #     # print(f"Removed: {removed_store}, Weekday Cost: {cost_weekday}, Weekend Cost: {cost_weekend}, Total Cost: {cost_weekday + cost_weekend}, Trucks: {trucks}")
 
-    output = pd.DataFrame({
-        "removed_stores" : removed_stores,
-        "weekday_cost" : Weekday_cost,
-        "weekend_cost" : Weekend_cost,
-        "Trucks" : Trucks,
-        "Total_Cost" : np.array(Weekend_cost) + np.array(Weekday_cost),
-    })
+    # output = pd.DataFrame({
+    #     "removed_stores" : removed_stores,
+    #     "weekday_cost" : Weekday_cost,
+    #     "weekend_cost" : Weekend_cost,
+    #     "Trucks" : Trucks,
+    #     "Total_Cost" : np.array(Weekend_cost) + np.array(Weekday_cost),
+    # })
 
-    output.to_pickle("removed_stores.pkl")
+    # output.to_pickle("removed_stores.pkl")
+    closestores = close_stores()
+    with open("removed_stores.pkl", "rb") as fp:
+        df = pkl.load(fp)
+    print(df.loc[df.removed_stores.isin(list(closestores.index))].iloc[np.argmin(df.loc[df.removed_stores.isin(list(closestores.index))].Total_Cost)])
+
+
+    # removed_store = "Countdown Hobsonville"
+    # routes_wkdy, cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
+    # routes_wknd, cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = trucks)

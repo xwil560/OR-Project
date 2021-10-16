@@ -4,7 +4,7 @@ import os
 
 from seaborn.palettes import color_palette
 from calculatecost import path_time, Cost
-from solve_lp import route_modifier, routes_solver
+from solve_lp import route_modifier, routes_solver, extra_trucks_solver
 from Lab6 import generateTaskTime
 from typing import List
 import tqdm as tq
@@ -157,13 +157,16 @@ if __name__ == "__main__":
 
     # demand_file = "weekday_routesLOW.pkl"
     # routs, x, y = routes_solver(demand_file)
-    # time_1 = routs[:len(routs)//2]
-    # time_2 = routs[:(len(routs)-len(routs)//2)]
-    # costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename=demand_file)
-    # with open("cost_simulations" + os.sep + "WeekdayLOW.pkl","wb") as fp:
-    #     pkl.dump(costs,fp)
-    # #with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
-    #  #   print(pkl.load(fp))
+    removed_store = "Countdown Northwest"
+    routs, cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
+    time_1 = routs[:len(routs)//2]
+    time_2 = routs[:(len(routs)-len(routs)//2)]
+    costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename="Weekday_routesLOW.pkl")
+    with open("cost_simulations" + os.sep + "NW_removed_wkdy.pkl","wb") as fp:
+        pkl.dump(costs,fp)
+
+    #with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
+     #   print(pkl.load(fp))
 
     # costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename="weekday_routesHIGH.pkl")
     # with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","wb") as fp:
