@@ -2,12 +2,12 @@
 ### Group 17
 
 ## Table of Contents
-- [ENGSCI 263 Operations Research Project: Truck Scheduling and Efficiency for Woolworths NZ](#-engsci-263-operations-research-project-truck-scheduling-and-efficiency-for-woolworths-nz)
-- [Table of Contents](#table-of-contents)
 - [Description](#description)
 - [Instructions](#instructions)
 - [Code File Summary](#code-file-summary)
 - [Data File Summary](#data-file-summary)
+- [Plots & Diagrams](#plots-&-diagrams)
+
 
 ## Description
 - This set of programs works to model and analyse the problem of scheduling a delivery scheme for Woolworths NZ stores in Auckland.
@@ -17,15 +17,22 @@
 	- Partitioning the store locations in such a way that selections of nodes within each region can be computed as routes.
 	- Calculating the costs of each route based on the time taken for each route.
 	- Formulating a linear program to select routes that minimise operation costs.
-	- Applying the linear program and outputting the associated delivery scheme.
+	- Applying the linear program and outputting the optimal delivery scheme.
+	- Mapping out the optimal delivery scheme
+	- Performs a simulation of 1000 runs
+	- Plots a histogram of the results of the simulation in terms of total costs
+	- Identifies stores that could are unusually close together
+	- Plots a new histogram of the total costs based on a simulation where a store is closed down (and the savings costs are put into extra delivery trucks)
+
 
 ## Instructions
 - Clone the project repository "OR-Project" from github.
 - Run in prompt: `pip3 install -r requirements/main.txt`
 - Run: `python3 main.py`
 - A statement will require an ORS key to be input
-- Allow the program to run (it provides helpful time indicators for some parts)
+- Allow the program to run (provides helpful time indicators for some parts)
 - A output for both the weekday and weekend delivery scheme solutions will be printed
+
 
 ## Code File Summary
 - `main.py` : Carries out overall process as described above (not including demand data analysis)
@@ -35,7 +42,13 @@
 	- Turns route combination data into a pickle dataframe file
 	- Solves linear program for weekday delivery scheme and outputs selected routes and associated cost.
 	- Maps out all routes for weekday deliveries
+	- Performs simulation of 1000 runs for weekday deliveries (with varied demands and time taken due to traffic)
+	- Plots histogram showing costs of each run and the associated 95% confidence interval
 	- Repeats process for weekend deliveries
+	- Lists the 10 closest stores to each other and chooses one to remove from all delivery schemes
+	- Recalculates new optimal cost of the delivery schemes with the removed store, accounting for new 
+	- Runs simulation for both weekend and weekday deliveries with the removed store
+	- Plots histogram showing new costs of each run and the associated 95% confidence interval 
 	
 - `data_analysis.py` :
 	- Reads in demand data given
@@ -76,18 +89,12 @@
 	- function : `generate_selected_routes`
 		- Takes in Openrouteservice client
 		- Takes in dataframe for locations of stores
-		- Takes in ID of selected routes in a list
+		- Takes in name of selected routes in a list
 		- Takes in dataframe of route combinations filename
 		- Reads in route combinations
-		- Creates HLS colour pallete to plot route lines in
+		- Creates HSS colour pallete to plot route lines
+		- Draws routes
 		- Return list of drawn routes
-	- Loads in locations of each stop
-	- Creates weekday map
-	- Plots selected weekday delivery routes as lines onto map
-	- Save map as html
-	- Creates weekend map
-	- Plots selected weekend delivery routes as lines onto map
-	- Save map as html
 	
 - `calculatecost.py` : 
 	- function : `create_LP_values`
@@ -116,8 +123,27 @@
 		- Formulates linear program to minimise operation costs
 		- Prints out routes that are selected as a part of the minimum cost solution
 		- Prints out the associated cost found as solution
+	- function : `route_modifier`
+	- function : `extra_trucks_solver`
 
-### Data File Summary ###
+- `simulation.py` :
+	- function : `change_demand`
+	- function : `calc_demand` (called by `change_demand`)
+	- function : `random_times`
+	- function : `simulation`
+	- function : `bootstrap_demands`
+	- function : `summarise_stats`
+
+- `close_stores.py` :
+	- function : `close_stores`
+
+- `Lab6.py` :
+	- function : `generateTaskTime`
+	- function : `alphaBetaFromAmB`
+
+
+## Data File Summary 
+#### Data 
 - `WoolworthsDemands.csv` :
 	Data given concerning the number of pallets demanded from each Woolworths store in Auckland for each day.
 
@@ -137,8 +163,37 @@
 - `combinations_weekend.json` :
 	A file containing all the route combinations for the weekend delivery scheme.
 
-- `weekday_routes.pkl` :
-	Stores the dataframe containing information on all weekday route combinations and their respective costs to be used for the linear program formulation.
+### differentDemands
+- `weekday_routes[LOW/_MEDIUM/HIGH].pkl` :
+	Stores the dataframe containing information on all weekday route combinations for a specific demand category and their respective costs to be used for the linear program formulation.
 
-- `weekend_routes.pkl` :
-	Stores the dataframe containing information on all weekend route combinations and their respective costs to be used for the linear program formulation.
+- `weekend_routes[LOW/HIGH].pkl` :
+	Stores the dataframe containing information on all weekend route combinations for a specific demand category and their respective costs to be used for the linear program formulation.
+
+### cost_simulations
+- `Weekday[Low/_Medium/High].pkl` :
+	Stores the array of costs that are returned as a result of running a simulation for a set of optimal weekday routes for a specific demand category.
+- `Weekend[Low/High].pkl` :
+	Stores the array of costs that are returned as a result of running a simulation for a set of optimal weekend routes for a specific demand category.
+- `NW_removed_wkdy.pkl` :
+	Stores the array of costs that are returned as a result of running a simulation for a set of optimal weekday routes for a specific demand category with Countdown NorthWest removed as a store to visit.
+- `NW_removed_wknd.pkl` :
+	Stores the array of costs that are returned as a result of running a simulation for a set of optimal weekend routes for a specific demand category with Countdown NorthWest removed as a store to visit.
+
+
+## Plots & Diagrams
+### maps
+- `weekday_routes[LOW/_MEDIUM/HIGH].html` :
+	Map with weekday route scheme drawn on for a specific demand category.
+- `weekend_routes[LOW/HIGH].html` :
+	Map with weekend route scheme drawn on for a specific demand category.
+
+### histograms
+- `Weekday[Low/_Medium/High].png` :
+	Histogram plot of costs generated from running simulations of weekday delivery scheme for a specific demand category.
+- `Weekend[Low/High].png` :
+	Histogram plot of costs generated from running simulations of weekend delivery scheme for a specific demand category.
+- `NW_removed_wkdy.png` :
+	Histogram plot of costs generated from running simulations of weekday delivery scheme for a specific demand category with Countdown NorthWest removed as a store to visit.
+- `NW_removed_wknd.png` :
+	Histogram plot of costs generated from running simulations of weekend delivery scheme for a specific demand category with Countdown NorthWest removed as a store to visit.
