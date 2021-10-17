@@ -6,7 +6,7 @@
 - [Instructions](#instructions)
 - [Code File Summary](#code-file-summary)
 - [Data File Summary](#data-file-summary)
-- [Plots & Diagrams](#plots-&-diagrams)
+- [Plots & Diagrams](#plots--diagrams)
 
 
 ## Description
@@ -21,7 +21,6 @@
 	- Mapping out the optimal delivery scheme
 	- Performs a simulation of 1000 runs
 	- Plots a histogram of the results of the simulation in terms of total costs
-	- Identifies stores that could are unusually close together
 	- Plots a new histogram of the total costs based on a simulation where a store is closed down (and the savings costs are put into extra delivery trucks)
 
 
@@ -45,8 +44,7 @@
 	- Performs simulation of 1000 runs for weekday deliveries (with varied demands and time taken due to traffic)
 	- Plots histogram showing costs of each run and the associated 95% confidence interval
 	- Repeats process for weekend deliveries
-	- Lists the 10 closest stores to each other and chooses one to remove from all delivery schemes
-	- Recalculates new optimal cost of the delivery schemes with the removed store, accounting for new 
+	- Recalculates new optimal cost of the delivery schemes with a removed store (Countdown NorthWest)
 	- Runs simulation for both weekend and weekday deliveries with the removed store
 	- Plots histogram showing new costs of each run and the associated 95% confidence interval 
 	
@@ -65,7 +63,7 @@
 		- Sets demand values as constants for each store type and adds to dataframe
 		- Loops through each region and generates all combinations that produce a summed demand less than truck capacity
 		- Results are saved as lists of store names
-		- Results are written to combinations_[weekday OR weekend].json
+		- Results are written to `combinations_[weekday/weekend].json`
 	
 - `generate_maps.py` : 
 	- function : `create_weekday_map`
@@ -100,19 +98,35 @@
 	- function : `create_LP_values`
 		- Takes in filename of route combinations json file
 		- Makes dataframe for durations between each pair of locations
-		- Makes dataframe for route combinations containing the stores visited (as a binary matrix) and the cost associated with the shortest path of the route
+		- Makes dataframe for route combinations containing the stores visited by each route (as a binary matrix)
 		- Returns route combination dataframe
 	- function : `TSP_calculate` (called by `create_LP_values`)
 		- Takes in a dataframe of times between locations
 		- Takes in a list of the stops in a specific route combination
-		- Evaluates the total time taken to traverse all arrangements of the given route
+		- Evaluates the travel time for each arrangements of the given route
 		- Stores the shortest time and associated pathway arrangement
-		- Calculates the cost associated with the shortest path
-		- Returns shortest path and cost
+		- Returns shortest path and the travel time associated with it
 	- function : `path_time` (called by `TSP_calculate`)
 		- Takes in dataframe containing durations between each pair of locations
 		- Takes in path list containing the order in which stores are visited
 		- Calculates the time taken to traverse a path in a specific order
+	- function : `route_cost` 
+		- Takes in dictionary representing the relevant demand scheme
+		- Takes in Pandas dataframe containing stores visited by each route
+		- Calculates cost of route
+		- Adds cost and number of pallets columns to Pandas dataframe
+		- Returns updated dataframe
+	- function : `route_demand` (called by `route_cost`)
+		- Takes in dictionary representing the relevant demand scheme
+		- Takes in a list of the stores that are visited in the given route
+		- Calculates the total number of pallets required in the route
+		- Returns number of pallets for whole route
+	- function : `Cost` (called by `route_cost`)
+		- Takes in travel time (total time for a route minus the time taken to unload pallets)
+		- Takes in number of pallets being delivered
+		- Calculates the total time for the route to be processed
+		- Calculates the cost for sending a Woolworths truck to complete the associated route
+		- Returns cost value 
 	- function : `import_json`
 		- Takes in filename of json file (for route combinations)
 		- Returns read/loaded data from json file
@@ -121,29 +135,88 @@
 	- function : `route_solver`
 		- Takes in filename of pickle dataframe
 		- Formulates linear program to minimise operation costs
-		- Prints out routes that are selected as a part of the minimum cost solution
-		- Prints out the associated cost found as solution
-	- function : `route_modifier`
+		- Returns list of optimal routes
+		- Returns list of the types of trucks used for each route (and associated time period)
+		- Returns optimal minimised cost value
+	- function : `route_modifier` (called by `simulation from simulation.py`)
+		- Takes in filename of pickle dataframe
+		- Takes in list of unsatisfied nodes due to a change in demand exceeding truck capacity
+		- Takes in number of Woolworths trucks unused in each time period
+		- Removes any stores that are not unsatisfied from dataframe
+		- Formulates linear program to minimise operation costs
+		- Returns list of routes covered by Woolworths trucks
+		- Returns list of routes covered by daily freight trucks
 	- function : `extra_trucks_solver`
+		- Takes in filename of pickle dataframe
+		- Takes in name of store to be removed
+		- Takes in boolean to determine whether LP is to be solved for a weekend solution or not
+		- Optionally takes in the number of extra trucks bought (if already determined)
+		- Removes store to be removed from dataframe
+		- Formulates linear program to minimise operation costs
+		- Introduces constraint to account for extra trucks and add extra truck costs to objective function
+		- Returns list of optimal routes
+		- Returns number of extra trucks required if not already found
 
 - `simulation.py` :
-	- function : `change_demand`
+	- function : `change_demand` (called by `simulation`)
+		- Takes in dictionary representing the relevant demand scheme
+		- Takes in routes assigned to time period 1 and 2 as lists
+		- Seperates routes that cannot be fulfilled due to a changed demand
+		- Return routes assigned to time period 1 with unsatisfied stores removed
+		- Return routes assigned to time period 2 with unsatisfied stores removed
+		- Return list of unsatisfied stores
+		- Return number of unused Woolworths trucks in time period 1
+		- Return number of unused Woolworths trucks in time period 2
 	- function : `calc_demand` (called by `change_demand`)
-	- function : `random_times`
+		- Takes in dictionary representing the relevant demand scheme
+		- Takes in list of stores to visit in route
+		- Return the total number of pallets for that route
+	- function : `random_times` (called by `simulation`)
+		- Takes in Pandas dataframe of time taken to travel between stops
+		- Takes in number of runs of simulation
+		- Based on total travel time for route, generate new time based on traffic adjustment with PERT-Beta distribution (Most optimistic taking 75% of the travel time, most pesimistic taking 250% more time)
+		- Return list of dataframes of time taken between between all stops (number of dataframes is the number of runs)
 	- function : `simulation`
-	- function : `bootstrap_demands`
-	- function : `summarise_stats`
+		- Takes in lists of routes in time periods 1 and 2
+		- Takes in boolean to determine whether simulation is for a weekend solution or not
+		- Takes in number of runs of simulation
+		- Takes in filename of pickle dataframe
+		- Loops a set number of times
+		- Each run randomises the number of pallets at each store and the travel time due to traffic
+		- Each run has a resulting cost
+		- Costs are returned in an array
+	- function : `bootstrap_demands` (called by `simulation`)
+		- Takes in Pandas dataframes of store locations and store demands
+		- Takes in boolean to determine whether simulation is for a weekend solution or not
+		- Takes in number of runs of simulations
+		- Samples demand values from initial distribution of demands based on store type and week stage
+		- Returns list of dictionaries representing demand scheme (randomised demands)
+	- function : `summarise_stats` 
+		- Takes in filename of pickle data for costs of each run of simulation
+		- Calculates mean, median, standard deviation, 2.5-th and 97.5-th percentile values for cost
+		- Plots histogram of cost values depicting 95% confidence interval
+		- Saves histogram plot
 
 - `close_stores.py` :
 	- function : `close_stores`
+		- Reads in the given data of the distances between stores
+		- Returns a dataframe of 10 stores that are closest to other stores 
 
 - `Lab6.py` :
-	- function : `generateTaskTime`
-	- function : `alphaBetaFromAmB`
+	- function : `generateTaskTime` 
+		- Takes in most optimistic duration
+		- Takes in most pessimistic duration
+		- Takes in most likely duration
+		- Generates a task time based on a PERT-Beta distribution
+	- function : `alphaBetaFromAmB` (called by `generateTaskTime`)
+		- Takes in most optimistic duration
+		- Takes in most pessimistic duration
+		- Takes in most likely duration
+		- Calculates the alpha and beta values to be used for a PERT-Beta distribution
 
 
 ## Data File Summary 
-#### Data 
+#### data 
 - `WoolworthsDemands.csv` :
 	Data given concerning the number of pallets demanded from each Woolworths store in Auckland for each day.
 
@@ -163,14 +236,14 @@
 - `combinations_weekend.json` :
 	A file containing all the route combinations for the weekend delivery scheme.
 
-### differentDemands
+#### differentDemands
 - `weekday_routes[LOW/_MEDIUM/HIGH].pkl` :
 	Stores the dataframe containing information on all weekday route combinations for a specific demand category and their respective costs to be used for the linear program formulation.
 
 - `weekend_routes[LOW/HIGH].pkl` :
 	Stores the dataframe containing information on all weekend route combinations for a specific demand category and their respective costs to be used for the linear program formulation.
 
-### cost_simulations
+#### cost_simulations
 - `Weekday[Low/_Medium/High].pkl` :
 	Stores the array of costs that are returned as a result of running a simulation for a set of optimal weekday routes for a specific demand category.
 - `Weekend[Low/High].pkl` :
@@ -182,13 +255,13 @@
 
 
 ## Plots & Diagrams
-### maps
+#### maps
 - `weekday_routes[LOW/_MEDIUM/HIGH].html` :
 	Map with weekday route scheme drawn on for a specific demand category.
 - `weekend_routes[LOW/HIGH].html` :
 	Map with weekend route scheme drawn on for a specific demand category.
 
-### histograms
+#### histograms
 - `Weekday[Low/_Medium/High].png` :
 	Histogram plot of costs generated from running simulations of weekday delivery scheme for a specific demand category.
 - `Weekend[Low/High].png` :
