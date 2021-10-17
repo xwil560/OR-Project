@@ -174,7 +174,7 @@
 	- function : `random_times` (called by `simulation`)
 		- Takes in Pandas dataframe of time taken to travel between stops
 		- Takes in number of runs of simulation
-		- Based on total travel time for route, generate new time based on traffic adjustment with PERT-Beta distribution (Most optimistic taking 75% of the travel time, most pesimistic taking 250% more time)
+		- Based on total travel time for route, generate new time based on traffic adjustment with PERT-Beta distribution (Most optimistic taking 75% of the travel time, most pesimistic taking 150% more time)
 		- Return list of dataframes of time taken between between all stops (number of dataframes is the number of runs)
 	- function : `simulation`
 		- Takes in lists of routes in time periods 1 and 2
