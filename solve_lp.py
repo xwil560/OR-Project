@@ -24,6 +24,10 @@ def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[st
     -------
     List_of_routes : List
         List of selected routes.
+    List_of_trucks : List
+        Specifies which truck type in which time period the route is travelled by
+    Cost : float
+        Cost of running the selected routes
 
     '''
 
@@ -67,13 +71,10 @@ def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[st
     # Solving routines
     prob.writeLP('Routes.lp')
 
-    import time
-    start = time.time()
-    #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    # If you have a version of CBC with multithreading enabled
+    # prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0)) 
     prob.solve()
-    end = time.time()
-    print(end-start)
-
+    
     # The status of the solution is printed to the screen
     #print("Status:", LpStatus[prob.status])
 
@@ -93,19 +94,27 @@ def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[st
 
 def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: int, N2: int) -> Tuple[List[pd.DataFrame], List[pd.DataFrame]]:
     '''
-    Takes in a file name. Solves a linear problem, returning the cheapest price
-    for pallet deliveries.
+    Takes a list of nodes that are now unsatisfied due to the demand variation preventing one truck from travelling to them
+    and resolves the linear program so its now satisfied
 
 
     inputs:
     ------
     input_data_filename : string
         file name of the routes, costs, locations being solved
+    unsatisfied_nodes : List
+        list of nodes which are no longer able to be reached by the route they were originally in
+    N1 : int
+        number of woolworths trucks not yet used in time period one
+    N2 : int
+        number of woolworths trucks not yet used in time period two
 
     outputs:
     -------
-    List_of_routes : List
-        List of selected routes.
+    List_of_routes_w : List
+        List of selected routes being run by woolworths trucks.
+    List_of_routes_df : List
+        List of selected routes being run by Daily Freight trucks.
 
     '''
 
@@ -187,19 +196,30 @@ def route_modifier(input_data_filename: str, unsatisfied_nodes: List[str], N1: i
 
 def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: bool = False, Ntrucks: Optional[int] = None) -> Tuple[List[pd.DataFrame], List[str], float]:
     '''
-    Takes in a file name. Solves a linear problem, returning the cheapest price
-    for pallet deliveries.
+    Solves the Linear Program with one store removed and with the option to buy new trucks for $5000
 
 
     inputs:
     ------
     input_data_filename : string
         file name of the routes, costs, locations being solved
+    removed_store : string
+        name of the store being removed
+    weekend : boolean
+        False if the LP is being solved for weekday routes and true otherwsie
+    Ntrucks : int
+        optional argument to be used if the number of trucks being bought is already determined 
+        e.g. so that the weekend and weekday solution have the same number of trucks
+    
 
     outputs:
     -------
     List_of_routes : List
         List of selected routes.
+    Cost : float
+        cost of running this logistics plan
+    Ntrucks : int
+        number of trucks bought under this solution
 
     '''
 
@@ -207,11 +227,8 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
     
     # Organize the data into costs and Aki matrix
-    
     data = data[data[removed_store]==0]
     data.reset_index(inplace=True)
-
-    
     
     # Organize the data into costs and Aki matrix
     cost = data["cost"]
@@ -310,10 +327,9 @@ if __name__ == "__main__":
 
     # output.to_pickle("removed_stores.pkl")
     closestores = close_stores()
-    with open("removed_stores.pkl", "rb") as fp:
+    with open("data" + os.sep + "removed_stores.pkl", "rb") as fp:
         df = pkl.load(fp)
     print(df.loc[df.removed_stores.isin(list(closestores.index))].iloc[np.argmin(df.loc[df.removed_stores.isin(list(closestores.index))].Total_Cost)])
-
 
     # removed_store = "Countdown Hobsonville"
     # routes_wkdy, cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)

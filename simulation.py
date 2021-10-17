@@ -58,10 +58,40 @@ def change_demand(demands: List[Dict[str, str]], time_1: List[List[str]], time_2
     return new_routes1, new_routes2, unsatisfied_nodes, N1, N2
 
 
-def calc_demand(demand: List[Dict[str, str]], route: List) -> int:
+def calc_demand(demand: Dict[str, str], route: List[str]) -> int:
+    '''
+    Calculates the demand needed on a route
+
+    inputs:
+    ------
+    demand : dictionary
+        dictionary taking in the stores as keys and for each store having the demand at that store as its value
+    route : list   
+        list of the stores being traversed in this path
+    outputs:
+    -------
+    demand : int
+        total number of palletes needing to be delivered on this route
+    '''
     return sum([demand[r] for r in route])
 
 def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
+    '''
+    generates a list of random times between each store, with each random time having an optimistic time of 75% 
+    the most likely time and a pessimistic travel time of 2.5* the most probable time.
+
+    inputs:
+    ------
+    df : pandas Dataframe
+        dataframe showing the travel time between each pair of stores
+    Nruns : int
+        number of times the random times need to be generated
+    outputs:
+    -------
+    dfs : list[dataframes]
+        list of dataframes each containing the times between stores randomly generated
+        according to a PERT beta distribution with pessimistic and optimistic times stated above
+    '''
     random_time = lambda t: t if (t==0 or isinstance(t,str)) else generateTaskTime(t*.75, t, 2.5*t)
     dfs = [df.iloc[0:0,:].copy() for i in range(Nruns)]
     for i in tq.trange(Nruns):
@@ -69,12 +99,31 @@ def random_times(df: pd.DataFrame, Nruns: int) -> List[pd.DataFrame]:
 
     return dfs
 
-def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: Optional[bool] = False, Nruns: Optional[int] = 100, filename: Optional[str] = "weekday_routesLOW.pkl") -> List[int]:
+def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: bool = False, Nruns: int = 100, filename: str = "weekday_routesLOW.pkl") -> List[int]:
+    '''
+    creates a list of costs generated according to our simulation policy
+
+    inputs:
+    ------
+    time_1 : List
+        List of all the routes being travelled in time period 1 
+    time_2 : List
+        List of all the routes being travelled in time period 2
+    weekend : boolean
+        False if the simulation is being done for weekday routes and true otherwsie
+    Nruns : int
+        number of times the simulation is being run
+    filename : str
+        name of the file containing the data for the LP with the routes that can be used
+    outputs:
+    -------
+    costs : list
+        List of all the costs from each simulation
+    '''
     costs = np.zeros(Nruns)
     locations_df = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv")
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
     duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
-
 
     time_dfs = random_times(duration_df, Nruns)
     dem_dicts = bootstrap_demands(locations_df, demand_df, weekend, Nruns)
@@ -90,7 +139,26 @@ def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: Option
     return costs
 
 
-def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: Optional[bool] = False, Nruns: Optional[int] = 100) -> Dict[str, int]:
+def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weekend: bool = False, Nruns: int = 100) -> List[Dict[str, int]]:
+    '''
+    generates a set of random demands for each store by bootstrapping from the data for each store type.
+
+    inputs:
+    ------
+    locations_df : pandas Dataframe
+        dataframe showing type of each store
+    demand_df : pandas Dataframe
+        dataframe showing the demand for each store at each time
+    weekend : boolean
+        False if the LP is being solved for weekday routes and true otherwsie
+    Nruns : int
+        number of times the random demands need to be generated
+    outputs:
+    -------
+    demands : list[dictionaries]
+        list of dictionaries mapping the stores to the demands for each simulation, drawing each stores demand from the 
+        bootstrapping distribution corresponding to that stores type (and if its a weekday/weekend)
+    '''
     locations_df.set_index('Store', inplace=True)
     locations_df = locations_df[locations_df['Type'] != "Distribution Centre"]
 
@@ -113,7 +181,22 @@ def bootstrap_demands(locations_df: pd.DataFrame, demand_df: pd.DataFrame, weeke
     return [{str(ldf[0]): int(bootstrap_val(demand_dict[ldf[1]])) for ldf in locations_df.itertuples()} for i in tq.trange(Nruns)]
 
 
-def summarise_stats(filename: str, density: Optional[bool] = False) -> None:
+def summarise_stats(filename: str, density: bool = False) -> None:
+    '''
+    generates histogram with 95% interval for the cost data stored in the pickle file
+    given by filename
+
+    inputs:
+    ------
+    filename : string
+        pickle file in the cost_simulations folder containing the cost data from the simulations
+    density : boolean
+        if true creates a density plot instead of a histogram
+
+    Notes:
+    ------
+    Saves a png with the same name as the pickle file showing the histogram that was generated.
+    '''
     with open("cost_simulations" + os.sep + filename,"rb") as fp:
         data = pkl.load(fp)    
     
