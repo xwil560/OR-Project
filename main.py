@@ -8,7 +8,21 @@ import generate_maps as maps
 import generate_partitions as partitions
 import calculatecost as costs
 import solve_lp as lp 
-#import data_analysis
+
+demands = {
+    "weekday_routesLOW" : {
+        "Countdown" : 8,
+        "Countdown Metro" : 5,
+        "SuperValue" : 5,
+        "FreshChoice" : 5,
+    },
+    "weekend_routesLOW" : {
+        "Countdown" : 4,
+        "Countdown Metro" : 0,
+        "SuperValue" : 0,
+        "FreshChoice" : 0,
+    }
+}
 
 if __name__ == "__main__":
     # Generate the partitions
@@ -17,32 +31,41 @@ if __name__ == "__main__":
     keys = {}
     keys['ORSkey'] = input("Please enter your ORS Key: ")
     
-    for week_stage in ["weekday", "weekend"]:
-        print(f"Generating {week_stage} partitions, routes, solutions and visualisations")
+    for routing_type in ["weekday_routesLOW", "weekend_routesLOW"]:
+        print(f"Generating all project components for {routing_type}.")
         print("------------------------")
+        
+        # Determine if it is a weekend
+        weekend = True if "weekend" in routing_type else False
 
-        # Generate the partitions
-        if week_stage == "weekday":
+        week_stage = "weekend" if weekend else "weekday"
+
+        # We start with "WoolworthsRegions.csv" which contains our stores
+        # segmented into smaller regions based on geographical qualities.
+
+        # Generate the partitions from our regions.
+        if not weekend:
             partitions.generate_partitions(partition_data, weekend=False) 
 
         else:
+            # Subset data
             weekend_data = partition_data[partition_data['Type'] == 'Countdown']
 
             partitions.generate_partitions(partition_data, weekend=True) 
         
         # Create routes and apply cost function
         df = costs.create_LP_values(f"combinations_{week_stage}.json")
-    
-        df.to_pickle("data" + os.sep + f"{week_stage}_routes.pkl")
+
+        df_rc = costs.route_cost(demands[routing_type], df)
+
+        df_rc.to_pickle("differentDemands" + os.sep + f"{routing_type}.pkl")
 
         # Solve LP for routes
-        route_numbers = lp.routes_solver(f"{week_stage}_routes.pkl")
-        
-        #keys = maps.read_keys()
+        route_numbers = lp.routes_solver(f"{routing_type}.pkl")
         
         ors_client = ors.Client(key=keys['ORSkey'])
 
-        locations = pd.read_csv("data/WoolworthsLocations.csv", index_col='Store')
+        locations = pd.read_csv("data" + os.sep + "WoolworthsLocations.csv", index_col='Store')
 
         # Map the resulting routes
         m = getattr(maps, f"create_{week_stage}_map")()
