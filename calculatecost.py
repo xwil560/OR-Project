@@ -67,7 +67,7 @@ def path_time(df: pd.DataFrame, path: List[str]) -> float:
     '''
 
     path = ["Distribution Centre Auckland"] + list(path) + ["Distribution Centre Auckland"] # make sure the path starts and ends in Favona
-    df = df.set_index("Unnamed: 0")
+    #df = df.set_index("Unnamed: 0")
     time = lambda l1,l2: df.loc[l1][l2] # time takes two locations and outputs the time taken to go between them
 
     t = sum([time(*p) for p in zip(path[:-1],path[1:])]) # calculate the time taken to traverse the path by summing the distances between each pair
@@ -128,17 +128,13 @@ def create_LP_values(filename: str) -> pd.DataFrame:
 
     for i in trange(leng): # for every route
         route = df.iloc[i] # take data for route
-        if "weekend" in filename:
-            path, cost = TSP_calculate(df_t, route.path, weekend=True) # find the shortest path and its cost
-        else:
-            path, cost = TSP_calculate(df_t, route.path, weekend=False) # find the shortest path and its cost
+        path, cost = TSP_calculate(df_t, route.path) # find the shortest path and its cost
 
         df["path"].iloc[i] = path # add the optimal path and cost to the df
         df["total_time"].iloc[i] = cost
+
         for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
             df[loc].iloc[i] = 1
-
-
 
     return df
 
@@ -223,11 +219,8 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    import time
-    o=time.time()
     df = create_LP_values("combinations_weekday.json")
     df.to_pickle("data/weekday_routes.pkl")
-    print(time.time()-o)
     df = pd.read_pickle("data/weekend_routes.pkl")
     
 
@@ -238,9 +231,6 @@ if __name__ == "__main__":
         "FreshChoice" : 27,
     }     
 
-    import time
-    o=time.time()
     dflow = route_cost(demands, df)
-    print(time.time()-o)
     dflow.to_pickle("differentDemands/weekend_routesLOW.pkl")
     # print(route_demand(demands, stops))

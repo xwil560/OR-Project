@@ -71,13 +71,10 @@ def routes_solver(input_data_filename: str) -> Tuple[List[pd.DataFrame], List[st
     # Solving routines
     prob.writeLP('Routes.lp')
 
-    import time
-    start = time.time()
-    #prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0))
+    # If you have a version of CBC with multithreading enabled
+    # prob.solve(COIN_CMD(threads=2,msg=1,fracGap = 0.0)) 
     prob.solve()
-    end = time.time()
-    print(end-start)
-
+    
     # The status of the solution is printed to the screen
     #print("Status:", LpStatus[prob.status])
 
@@ -230,11 +227,8 @@ def extra_trucks_solver(input_data_filename: str, removed_store: str, weekend: b
     data =pd.read_pickle("differentDemands" + os.sep + input_data_filename)
     
     # Organize the data into costs and Aki matrix
-    
     data = data[data[removed_store]==0]
     data.reset_index(inplace=True)
-
-    
     
     # Organize the data into costs and Aki matrix
     cost = data["cost"]
@@ -333,10 +327,9 @@ if __name__ == "__main__":
 
     # output.to_pickle("removed_stores.pkl")
     closestores = close_stores()
-    with open("removed_stores.pkl", "rb") as fp:
+    with open("data" + os.sep + "removed_stores.pkl", "rb") as fp:
         df = pkl.load(fp)
     print(df.loc[df.removed_stores.isin(list(closestores.index))].iloc[np.argmin(df.loc[df.removed_stores.isin(list(closestores.index))].Total_Cost)])
-
 
     # removed_store = "Countdown Hobsonville"
     # routes_wkdy, cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)

@@ -125,7 +125,6 @@ def simulation(time_1: List[List[str]], time_2: List[List[str]], weekend: bool =
     demand_df = pd.read_csv("data" + os.sep + "WoolworthsDemands.csv")
     duration_df = pd.read_csv("data" + os.sep + "WoolworthsTravelDurations.csv")
 
-
     time_dfs = random_times(duration_df, Nruns)
     dem_dicts = bootstrap_demands(locations_df, demand_df, weekend, Nruns)
 
