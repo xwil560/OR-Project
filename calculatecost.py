@@ -184,8 +184,6 @@ def create_LP_values(filename: str) -> pd.DataFrame:
         for loc in path: # for all stores the route goes through place 1 under all the columns corresponding to these stores
             df[loc].iloc[i] = 1
 
-
-
     return df
 
 def route_demand(dict: Dict[str, int], path: List[str]) -> int:
@@ -222,11 +220,8 @@ if __name__ == "__main__":
     # p,c = TSP_calculate(df,  stops)
     # print(p,c)
     # print(create_LP_values())
-    import time
-    o=time.time()
     df = create_LP_values("combinations_weekday.json")
     df.to_pickle("data/weekday_routes.pkl")
-    print(time.time()-o)
     df = pd.read_pickle("data/weekend_routes.pkl")
     
 
@@ -237,9 +232,6 @@ if __name__ == "__main__":
         "FreshChoice" : 27,
     }     
 
-    import time
-    o=time.time()
     dflow = route_cost(demands, df)
-    print(time.time()-o)
     dflow.to_pickle("differentDemands/weekend_routesLOW.pkl")
     # print(route_demand(demands, stops))
