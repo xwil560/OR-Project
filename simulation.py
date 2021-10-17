@@ -157,13 +157,13 @@ if __name__ == "__main__":
 
     # demand_file = "weekday_routesLOW.pkl"
     # routs, x, y = routes_solver(demand_file)
-    removed_store = "Countdown Northwest"
-    routs, cost_weekday, trucks = extra_trucks_solver("weekday_routesLOW.pkl", removed_store)
-    time_1 = routs[:len(routs)//2]
-    time_2 = routs[:(len(routs)-len(routs)//2)]
-    costs = simulation(time_1,time_2, weekend=False,Nruns = 1000, filename="Weekday_routesLOW.pkl")
-    with open("cost_simulations" + os.sep + "NW_removed_wkdy.pkl","wb") as fp:
-        pkl.dump(costs,fp)
+    # removed_store = "Countdown Northwest"
+    # routs, cost_weekend, _ = extra_trucks_solver("weekend_routesLOW.pkl", removed_store, weekend=True, Ntrucks = 0)
+    # time_1 = routs[:len(routs)//2]
+    # time_2 = routs[:(len(routs)-len(routs)//2)]
+    # costs = simulation(time_1,time_2, weekend=True,Nruns = 1000, filename="Weekend_routesLOW.pkl")
+    # with open("cost_simulations" + os.sep + "NW_removed_wknd.pkl","wb") as fp:
+    #     pkl.dump(costs,fp)
 
     #with open("cost_simulations" + os.sep + "WeekdayHigh.pkl","rb") as fp:
      #   print(pkl.load(fp))
@@ -176,6 +176,6 @@ if __name__ == "__main__":
     #     print(pkl.load(fp))
     
 
-    files = glob("cost_simulations" + os.sep + "*")
+    files = glob("cost_simulations" + os.sep + "NW_removed_wknd.pkl")
     for f in files:
         summarise_stats(f.split(os.sep)[-1])
