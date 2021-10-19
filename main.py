@@ -82,7 +82,7 @@ if __name__ == "__main__":
         
         [line.add_to(m) for line in maps.generate_selected_routes(ors_client, routes, locations)]
 
-        m.save(f"maps" + os.sep + "{routing_type}_map.html")
+        m.save(f"maps" + os.sep + f"{routing_type}_map.html")
 
         # Simulation
         print("Simulating different demands for route selection")
